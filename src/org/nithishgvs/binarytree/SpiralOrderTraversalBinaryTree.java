@@ -1,69 +1,33 @@
 package org.nithishgvs.binarytree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-
 /**
- * PreOrderTraversal of Binary Tree
+ * Spiral Order Traversal Binary Tree
  * 
  * @author nithishgvs
  *
- * @param <T>
  */
-
-public class PreOrderTraversalBinaryTree<T> {
-
+public class SpiralOrderTraversalBinaryTree<T> {
+	
 	/**
-	 * root->left->right
 	 * 
 	 * @param root
 	 */
-	public void preOrderRecursive(Node<T> root) {
-		if (root == null)
-			return;
-
-		System.out.print(root.getData() + " ");
-		preOrderRecursive(root.getLeftChild());
-		preOrderRecursive(root.getRightChild());
+	public void spiralOrderTraversal(Node<Integer> root){
+		
 	}
+	
+	
 
-	/**
-	 * root->left->right Uses a Stack and Queue
-	 * 
-	 * @param root
-	 */
-	@SuppressWarnings("unchecked")
-	public void preOrderIterative(Node<T> root) {
-		if (root == null)
-			return;
-		Stack<Node> stack = new Stack<>();
-		Queue<Node> queue = new LinkedList<>();
-		stack.push(root);
-		while (!stack.isEmpty()) {
-			Node<T> tmp = stack.pop();
-			if (tmp != null) {
-				queue.add(tmp);
-				if (tmp.getRightChild() != null) {
-					stack.push(tmp.getRightChild());
-				}
-				if (tmp.getLeftChild() != null) {
-					stack.push(tmp.getLeftChild());
-				}
-			}
-		}
-		while (queue.size() != 0) {
-			System.out.print(queue.poll().getData() + " ");
-		}
-	}
-
+	
 	// Main Method
 	public static void main(String[] args) {
-		PreOrderTraversalBinaryTree<Integer> preorder = new PreOrderTraversalBinaryTree<Integer>();
 		Node<Integer> root = populateBinaryTree();
-		preorder.preOrderIterative(root);
+		SpiralOrderTraversalBinaryTree<Integer> spiralOrder = new SpiralOrderTraversalBinaryTree<Integer>();
 
 	}
+	
+	
+	
 
 	/**
 	 * Api method to populate Binary Tree

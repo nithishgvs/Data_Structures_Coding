@@ -1,68 +1,61 @@
 package org.nithishgvs.binarytree;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 /**
- * PreOrderTraversal of Binary Tree
+ * Post Order Traversal of Binary Tree
  * 
  * @author nithishgvs
  *
- * @param <T>
  */
-
-public class PreOrderTraversalBinaryTree<T> {
+public class PostOrderTraversalBinaryTree<T> {
 
 	/**
-	 * root->left->right
+	 * left->right->root
 	 * 
 	 * @param root
 	 */
-	public void preOrderRecursive(Node<T> root) {
+	public void postOrderRecursive(Node<T> root) {
 		if (root == null)
 			return;
-
+		postOrderRecursive(root.getLeftChild());
+		postOrderRecursive(root.getRightChild());
 		System.out.print(root.getData() + " ");
-		preOrderRecursive(root.getLeftChild());
-		preOrderRecursive(root.getRightChild());
+
 	}
 
 	/**
-	 * root->left->right Uses a Stack and Queue
+	 * left->right->root Uses 2 stacks (S1,S2) pushes root(first step) on S1 and
+	 * copies root from S1 to S2 and if S1 has left and right copies to S1 and
+	 * so on
 	 * 
 	 * @param root
 	 */
-	@SuppressWarnings("unchecked")
-	public void preOrderIterative(Node<T> root) {
-		if (root == null)
-			return;
-		Stack<Node> stack = new Stack<>();
-		Queue<Node> queue = new LinkedList<>();
-		stack.push(root);
-		while (!stack.isEmpty()) {
-			Node<T> tmp = stack.pop();
-			if (tmp != null) {
-				queue.add(tmp);
-				if (tmp.getRightChild() != null) {
-					stack.push(tmp.getRightChild());
-				}
-				if (tmp.getLeftChild() != null) {
-					stack.push(tmp.getLeftChild());
-				}
+	public void postOrderIterative(Node<T> root) {
+		Stack<Node> stack1 = new Stack<Node>();
+		Stack<Node> stack2 = new Stack<Node>();
+		stack1.add(root);
+		while (!stack1.isEmpty()) {
+			Node<T> temp = stack1.pop();
+			stack2.push(temp);
+			if (temp.getLeftChild() != null) {
+				stack1.push(temp.getLeftChild());
+			}
+			if (temp.getRightChild() != null) {
+				stack1.push(temp.getRightChild());
 			}
 		}
-		while (queue.size() != 0) {
-			System.out.print(queue.poll().getData() + " ");
+		while (!stack2.isEmpty()) {
+			System.out.print(stack2.pop().getData() + " ");
 		}
+
 	}
 
 	// Main Method
 	public static void main(String[] args) {
-		PreOrderTraversalBinaryTree<Integer> preorder = new PreOrderTraversalBinaryTree<Integer>();
 		Node<Integer> root = populateBinaryTree();
-		preorder.preOrderIterative(root);
-
+		PostOrderTraversalBinaryTree<Integer> postorder = new PostOrderTraversalBinaryTree<Integer>();
+		postorder.postOrderIterative(root);
 	}
 
 	/**

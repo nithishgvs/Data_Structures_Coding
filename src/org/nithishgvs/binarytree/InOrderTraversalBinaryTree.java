@@ -4,7 +4,6 @@ import java.util.Stack;
 
 public class InOrderTraversalBinaryTree<T> {
 
-	private Node<T> root;
 
 	/**
 	 * left->root->right

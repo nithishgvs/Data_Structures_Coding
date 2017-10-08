@@ -2,67 +2,42 @@ package org.nithishgvs.binarytree;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
- * PreOrderTraversal of Binary Tree
+ * Level Order Traversal BinaryTree
  * 
  * @author nithishgvs
  *
- * @param <T>
  */
-
-public class PreOrderTraversalBinaryTree<T> {
+public class LevelOrderTraversalBinaryTree<T> {
 
 	/**
-	 * root->left->right
+	 * Print nodes at each level before going to another level
 	 * 
 	 * @param root
 	 */
-	public void preOrderRecursive(Node<T> root) {
-		if (root == null)
-			return;
+	public void levelOrderTraversal(Node<T> root) {
 
-		System.out.print(root.getData() + " ");
-		preOrderRecursive(root.getLeftChild());
-		preOrderRecursive(root.getRightChild());
-	}
-
-	/**
-	 * root->left->right Uses a Stack and Queue
-	 * 
-	 * @param root
-	 */
-	@SuppressWarnings("unchecked")
-	public void preOrderIterative(Node<T> root) {
-		if (root == null)
-			return;
-		Stack<Node> stack = new Stack<>();
-		Queue<Node> queue = new LinkedList<>();
-		stack.push(root);
-		while (!stack.isEmpty()) {
-			Node<T> tmp = stack.pop();
-			if (tmp != null) {
-				queue.add(tmp);
-				if (tmp.getRightChild() != null) {
-					stack.push(tmp.getRightChild());
-				}
-				if (tmp.getLeftChild() != null) {
-					stack.push(tmp.getLeftChild());
-				}
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(root);
+		while (!queue.isEmpty()) {
+			Node<T> temp = queue.poll();
+			System.out.print(temp.getData() + " ");
+			if (temp.getLeftChild() != null) {
+				queue.add(temp.getLeftChild());
+			}
+			if (temp.getRightChild() != null) {
+				queue.add(temp.getRightChild());
 			}
 		}
-		while (queue.size() != 0) {
-			System.out.print(queue.poll().getData() + " ");
-		}
+
 	}
 
 	// Main Method
 	public static void main(String[] args) {
-		PreOrderTraversalBinaryTree<Integer> preorder = new PreOrderTraversalBinaryTree<Integer>();
 		Node<Integer> root = populateBinaryTree();
-		preorder.preOrderIterative(root);
-
+		LevelOrderTraversalBinaryTree<Integer> levelorder = new LevelOrderTraversalBinaryTree<Integer>();
+		levelorder.levelOrderTraversal(root);
 	}
 
 	/**
