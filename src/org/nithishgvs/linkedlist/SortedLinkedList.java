@@ -4,6 +4,12 @@ public class SortedLinkedList<T> {
 
 	NodeSLL<Integer> headNode;
 
+	/**
+	 * Insertion in a Sorted Linked List
+	 * 
+	 * @param data
+	 * @return
+	 */
 	public NodeSLL<Integer> insertSortedLinkedList(Integer data) {
 		if (headNode == null) {
 			headNode = new NodeSLL<Integer>(data);
@@ -15,7 +21,7 @@ public class SortedLinkedList<T> {
 			headNode = temp;
 			return headNode;
 		}
-		
+
 		NodeSLL<Integer> current = headNode;
 		NodeSLL<Integer> previous = null;
 
