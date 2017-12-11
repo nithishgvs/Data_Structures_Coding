@@ -8,6 +8,7 @@ public class SingleLLTest {
 		sll.insertAtLast(4);
 		sll.insertAtLast(5);
 		sll.insertAtLast(6);
+		System.out.println(sll.sizeOfLinkedList(headNode));
 		sll.printSingleLL(headNode);
 		sll.deleteAtLast(headNode);
 		System.out.println();

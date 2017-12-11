@@ -112,4 +112,23 @@ public class SingleLLOperations<T> {
 		System.out.println("OOps!Element Not found!");
 	}
 
+	/**
+	 * No of Elements in a Linked List
+	 * 
+	 * @param headNode
+	 * @return
+	 */
+	public int sizeOfLinkedList(NodeSLL<T> headNode) {
+		int size = 0;
+		if (headNode == null) {
+			return size;
+		}
+		NodeSLL<T> current = headNode;
+		while (current != null) {
+			size++;
+			current = current.getNextNode();
+		}
+		return size;
+	}
+
 }
