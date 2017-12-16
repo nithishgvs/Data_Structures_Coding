@@ -1,7 +1,11 @@
 package org.nithishgvs.linkedlist;
 
 public class EvenNodesEndLinkedList<T> {
-
+	/**
+	 * Moving Even Linked List Nodes to End of Linked List
+	 * 
+	 * @param headNode
+	 */
 	public void movingEvenNodes(NodeSLL<Integer> headNode) {
 
 		if (headNode == null) {
