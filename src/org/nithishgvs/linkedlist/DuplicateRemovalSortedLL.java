@@ -26,6 +26,7 @@ public class DuplicateRemovalSortedLL<T> {
 		}
 		return headNode;
 	}
+	
 
 	public static void main(String[] args) {
 		SingleLLOperations<Integer> sll = new SingleLLOperations<>();
@@ -52,6 +53,8 @@ public class DuplicateRemovalSortedLL<T> {
 		DuplicateRemovalSortedLL<Integer> dup = new DuplicateRemovalSortedLL<>();
 		dup.duplicateRemoval(headNode);
 		sll.printSingleLL(headNode);
+		System.out.println("");
+		
 
 	}
 
