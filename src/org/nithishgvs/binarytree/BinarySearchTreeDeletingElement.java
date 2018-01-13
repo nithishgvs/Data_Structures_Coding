@@ -21,6 +21,7 @@ public class BinarySearchTreeDeletingElement {
 	// is, inorder successor is needed only when right child is not
 	// empty. In this particular case, inorder successor can be obtained
 	// by finding the minimum value in right child of the node
+	
 	public TreeNode deleteElementRecursive(TreeNode rootNode, int data) {
 
 		if (rootNode == null) {
