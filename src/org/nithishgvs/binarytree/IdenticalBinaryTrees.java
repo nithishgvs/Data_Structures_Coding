@@ -6,7 +6,13 @@ import java.util.Queue;
 import org.junit.Test;
 
 public class IdenticalBinaryTrees {
-
+	/**
+	 * Finding if two BST's are same
+	 * 
+	 * @param root1
+	 * @param root2
+	 * @return
+	 */
 	public static boolean identicalBSTRecursive(TreeNode root1, TreeNode root2) {
 		if (root1 == null && root2 == null) {
 			return true;
@@ -23,6 +29,13 @@ public class IdenticalBinaryTrees {
 		return false;
 	}
 
+	/**
+	 * Finding if two BST's are same
+	 * 
+	 * @param root1
+	 * @param root2
+	 * @return
+	 */
 	public static boolean identicalBSTIterative(TreeNode root1, TreeNode root2) {
 
 		if (root1 == null && root2 == null) {
