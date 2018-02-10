@@ -2,11 +2,10 @@ package org.leetcode.Arrays;
 
 import org.junit.Test;
 
+//A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element
 public class ToeplitzMatrix_766 {
 
 	/**
-	 * A matrix is Toeplitz if every diagonal from top-left to bottom-right has
-	 * the same element
 	 * 
 	 * @param matrix
 	 * @return
