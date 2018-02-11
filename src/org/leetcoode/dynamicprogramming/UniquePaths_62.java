@@ -2,6 +2,7 @@ package org.leetcoode.dynamicprogramming;
 
 import org.junit.Test;
 
+//Dynamic Programming
 public class UniquePaths_62 {
 
 	public static int UniquePaths(int x, int y) {
@@ -23,7 +24,7 @@ public class UniquePaths_62 {
 			}
 
 		}
-		return matrix[matrix.length-1][matrix[0].length-1];
+		return matrix[matrix.length - 1][matrix[0].length - 1];
 	}
 
 	@Test
