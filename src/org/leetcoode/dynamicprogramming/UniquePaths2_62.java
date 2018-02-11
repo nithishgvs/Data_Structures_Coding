@@ -2,7 +2,7 @@ package org.leetcoode.dynamicprogramming;
 
 import org.junit.Test;
 
-//Unique Paths without Obstacles!1 is obstacle 0 is safe path
+//Unique Paths without Obstacles! 1 is obstacle 0 is safe path
 public class UniquePaths2_62 {
 
 	public int UniquePathWithObstacles(int[][] matrix) {
