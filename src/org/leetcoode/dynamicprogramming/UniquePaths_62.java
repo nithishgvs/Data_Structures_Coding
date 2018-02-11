@@ -2,9 +2,9 @@ package org.leetcoode.dynamicprogramming;
 
 import org.junit.Test;
 
-//Dynamic Programming
 public class UniquePaths_62 {
-
+  
+	//Unique Paths without Obstacles!
 	public static int UniquePaths(int x, int y) {
 
 		int matrix[][] = new int[x][y];
