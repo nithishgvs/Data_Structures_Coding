@@ -12,7 +12,6 @@ public class Validate_BST_98 {
 		if (root == null) {
 			return true;
 		}
-		System.out.println(root.getData());
 		if (root.getLeftChild() == null && root.getRightChild() == null) {
 			return true;
 		}

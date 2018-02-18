@@ -25,7 +25,7 @@ public class UniqueBST_DP_96 {
 
 	@Test
 	public void testUniqueBST() {
-		System.out.println(UniqueBST(4));
+		System.out.println(UniqueBST(5));
 	}
 
 }
