@@ -4,7 +4,7 @@ import java.util.Stack;
 
 import org.junit.Test;
 
-public class ZigzagLevelOrderTraversal {
+public class ZigzagLevelOrderTraversal_103 {
     /**
      * 
      * @param root
