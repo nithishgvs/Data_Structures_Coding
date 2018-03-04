@@ -5,7 +5,7 @@ import org.junit.Test;
 public class SearchInsertPosition_35 {
 
 	/**
-	 * Took u lot of time be focussed Sai-Tough for u
+	 * 
 	 * 
 	 * @param nums
 	 * @param target
@@ -48,9 +48,7 @@ public class SearchInsertPosition_35 {
 	@Test
 	public void testSearchPosition() {
 		int[] array = { 2, 7, 8, 9, 11 };
-		int[] array1 = { 1 };
 		System.out.println(SearchInsertPosition(array, 12));
-		// System.out.println(SearchInsertPosition(array, 7));
 	}
 
 }
