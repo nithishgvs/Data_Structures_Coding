@@ -12,14 +12,14 @@ public class LongestPalindromicSubsequence_516 {
 	/**
 	 * Here Backtrack and find the substring dont just return the size
 	 * 
-	 * @param input
+	 * @param s
 	 * @return
 	 */
-	public static char[] LongestPalindromicSubsequence(String input) {
-		int[][] array = new int[input.length()][input.length()];
+	public static int LongestPalindromicSubsequence(String s) {
+		int[][] array = new int[s.length()][s.length()];
 
 		// Diagnol Condition
-		for (int i = 0; i < input.length(); i++) {
+		for (int i = 0; i < s.length(); i++) {
 			array[i][i] = 1;
 		}
 
@@ -30,7 +30,7 @@ public class LongestPalindromicSubsequence_516 {
 			while (i < array.length) {
 				int j = i + l;
 				if (j < array.length) {
-					if (input.charAt(i) == input.charAt(j)) {
+					if (s.charAt(i) == s.charAt(j)) {
 						array[i][j] = array[i + 1][j - 1] + 2;
 					} else {
 						array[i][j] = Math.max(array[i][j - 1], array[i + 1][j]);
@@ -43,15 +43,15 @@ public class LongestPalindromicSubsequence_516 {
 
 		// Back track and find the subsequence
 		int startIndex = 0;
-		char[] charArray = new char[array[0][input.length() - 1]];
+		char[] charArray = new char[array[0][s.length() - 1]];
 		int lastIndex = charArray.length - 1;
 
 		int i = 0;
-		int j = input.length() - 1;
+		int j = s.length() - 1;
 		while (startIndex <= lastIndex) {
-			if (input.charAt(i) == input.charAt(j)) {
-				charArray[startIndex] = input.charAt(i);
-				charArray[lastIndex] = input.charAt(i);
+			if (s.charAt(i) == s.charAt(j)) {
+				charArray[startIndex] = s.charAt(i);
+				charArray[lastIndex] = s.charAt(i);
 				i = i + 1;
 				j = j - 1;
 				startIndex++;
@@ -65,7 +65,7 @@ public class LongestPalindromicSubsequence_516 {
 			}
 		}
 
-		return charArray;
+		return charArray.length;
 	}
 
 	@Test
