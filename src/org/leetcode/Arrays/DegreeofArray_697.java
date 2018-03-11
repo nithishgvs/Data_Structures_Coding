@@ -16,14 +16,9 @@ public class DegreeofArray_697 {
 		Map<Integer, ArrayList<Integer>> map = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {
 			if (map.get(nums[i]) == null) {
-				ArrayList<Integer> newList = new ArrayList<>();
-				newList.add(i);
-				map.put(nums[i], newList);
-			} else {
-				ArrayList<Integer> oldList = map.get(nums[i]);
-				oldList.add(i);
-				map.put(nums[i], oldList);
+				map.put(nums[i], new ArrayList<>());
 			}
+			map.get(nums[i]).add(i);
 			degree = Math.max(map.get(nums[i]).size(), degree);
 		}
 
@@ -42,7 +37,7 @@ public class DegreeofArray_697 {
 	public void test() {
 		int[] nums = { 1, 2, 2, 3, 1 };
 		int[] nums2 = { 1, 2, 2, 3, 1, 4, 2 };
-		System.out.println(findShortestSubArray(nums2));
+		System.out.println(findShortestSubArray(nums));
 	}
 
 }
