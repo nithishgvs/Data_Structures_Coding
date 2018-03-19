@@ -64,7 +64,7 @@ public class LongestPalindromicSubstring_5 {
 	public void testLongestPalindromicSubstring() {
 		String input = "babadada";
 		String input2 = "cbbd";
-		System.out.println(String.valueOf(longestPalindrome(input)));
+		System.out.println(String.valueOf(longestPalindrome(input2)));
 	}
 
 }
