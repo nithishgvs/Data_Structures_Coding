@@ -7,6 +7,8 @@ public class NonDecreasing_Array_665 {
 	/**
 	 * Verified outside material
 	 * 
+	 * http://massivealgorithms.blogspot.com/2017/08/leetcode-665-non-decreasing-array.html
+	 * 
 	 * @param nums
 	 * @return
 	 */
