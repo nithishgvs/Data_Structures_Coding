@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @param <K>
  * @param <V>
  */
-public class HashMap<K, V> {
+public class HashMapCustom<K, V> {
 
 	private int size = 0;
 	private ArrayList<HashNode<K, V>> bucketArray;
@@ -18,7 +18,7 @@ public class HashMap<K, V> {
 
 	// Constructor to initialize the bucketArray
 
-	public HashMap() {
+	public HashMapCustom() {
 		// ArrayList will be created with default size 10
 		// By default all values will be null
 		bucketArray = new ArrayList<>();

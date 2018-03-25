@@ -1,4 +1,4 @@
-package org.leetcode.dynamicprogramming;
+package org.leetcode.DynamicProgramming;
 
 import org.junit.Test;
 

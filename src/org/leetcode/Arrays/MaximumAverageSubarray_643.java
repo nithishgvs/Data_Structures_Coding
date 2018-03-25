@@ -3,6 +3,12 @@ package org.leetcode.Arrays;
 import org.junit.Test;
 
 public class MaximumAverageSubarray_643 {
+	/**
+	 * 
+	 * @param nums
+	 * @param k
+	 * @return
+	 */
 	public double findMaxAverage(int[] nums, int k) {
 		double maxAverage = Integer.MIN_VALUE;
 		int sumTillNow = 0;
