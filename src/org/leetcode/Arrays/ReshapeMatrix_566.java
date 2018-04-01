@@ -5,7 +5,20 @@ import java.util.Queue;
 
 public class ReshapeMatrix_566 {
 
+	/**
+	 * 
+	 * @param nums
+	 * @param r
+	 * @param c
+	 * @return
+	 */
 	public int[][] matrixReshape(int[][] nums, int r, int c) {
+
+		int elemPresent = nums.length * nums[0].length;
+
+		if (r * c > elemPresent) {
+			return nums;
+		}
 		int[][] outputMatrix = new int[r][c];
 
 		Queue<Integer> queue = new LinkedList<>();
@@ -16,10 +29,6 @@ public class ReshapeMatrix_566 {
 			}
 		}
 
-		int elemPresent = queue.size();
-		if (r * c > elemPresent) {
-			return nums;
-		}
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
 				outputMatrix[i][j] = queue.poll();
