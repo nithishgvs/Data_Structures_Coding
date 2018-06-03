@@ -2,7 +2,7 @@ package org.leetcode.Stack;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+//Did with 1 queue
 public class StackWithQueue_225 {
 
 	/** Initialize your data structure here. */
