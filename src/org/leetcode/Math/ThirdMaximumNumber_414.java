@@ -2,7 +2,7 @@ package org.leetcode.Math;
 
 import org.junit.Test;
 
-public class ThirdMaximumNumber {
+public class ThirdMaximumNumber_414 {
 
 	public int thirdMax(int[] nums) {
 		long firstMax = Long.MIN_VALUE;
