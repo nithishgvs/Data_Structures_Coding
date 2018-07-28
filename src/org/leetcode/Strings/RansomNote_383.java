@@ -7,6 +7,7 @@ import java.util.Set;
 import org.junit.Test;
 
 public class RansomNote_383 {
+	
 
 	private Map<Character, Integer> charMap = null;
 
