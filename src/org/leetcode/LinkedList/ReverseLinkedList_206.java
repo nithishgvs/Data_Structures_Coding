@@ -45,19 +45,4 @@ public class ReverseLinkedList_206 {
 		System.out.println();
 	}
 
-	@Test
-	public void testRotateRight() {
-		ListNode head = new ListNode(1);
-		head.next = new ListNode(2);
-		head.next.next = new ListNode(3);
-		head.next.next.next = new ListNode(4);
-		head.next.next.next.next = new ListNode(5);
-		System.out.println("Before Reverse");
-		printLinkedList(head);
-		ListNode testNode = reverseList(head);
-		System.out.println("After Reverse");
-		printLinkedList(testNode);
-
-	}
-
 }
