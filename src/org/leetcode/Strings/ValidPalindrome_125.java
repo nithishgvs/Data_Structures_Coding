@@ -5,23 +5,21 @@ import org.junit.Test;
 public class ValidPalindrome_125 {
 
 	public static boolean isValidPalindrome(String input) {
-		input = input.replaceAll("[^a-zA-Z]", "");
+		input = input.replaceAll("[^a-zA-Z0-9]", "");
 		input = input.toLowerCase();
+		String output = new StringBuffer(input).reverse().toString();
 
-		for (int i = 0; i < input.length() / 2; i++) {
-			if (input.charAt(i) == input.charAt(input.length() - 1 - i)) {
-				continue;
-			} else {
-				return false;
-			}
-		}
-		return true;
+		if (output.equals(input))
+			return true;
+
+		return false;
 	}
 
 	@Test
 	public void testValidPalindrome() {
-		String input = "MADAM!,";
-		System.out.println(isValidPalindrome(input));
+		String input = "A man, a plan, a canal: Panama";
+		String in="0P";
+		System.out.println(isValidPalindrome(in));
 	}
 
 }
