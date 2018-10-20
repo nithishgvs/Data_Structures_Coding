@@ -1,10 +1,10 @@
 package org.leetcode.Stack;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-
-import org.junit.Test;
 
 public class ValidParentheses_20 {
 

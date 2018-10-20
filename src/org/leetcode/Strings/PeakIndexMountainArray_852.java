@@ -1,8 +1,8 @@
 package org.leetcode.Strings;
 
-import java.util.Arrays;
-
 import org.junit.Test;
+
+import java.util.Arrays;
 
 public class PeakIndexMountainArray_852 {
 

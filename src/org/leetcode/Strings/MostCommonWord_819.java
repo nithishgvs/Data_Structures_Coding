@@ -1,11 +1,11 @@
 package org.leetcode.Strings;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-
-import org.junit.Test;
 
 public class MostCommonWord_819 {
 

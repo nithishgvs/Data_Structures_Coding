@@ -1,11 +1,9 @@
 package org.leetcode.Strings;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PartitionLabels_763 {
 

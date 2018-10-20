@@ -1,12 +1,8 @@
 package org.leetcode.Strings;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
-
 import org.junit.Test;
+
+import java.util.*;
 
 public class ReorganizeString_767 {
 

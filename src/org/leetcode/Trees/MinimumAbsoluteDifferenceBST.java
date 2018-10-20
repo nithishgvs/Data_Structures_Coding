@@ -1,8 +1,8 @@
 package org.leetcode.Trees;
 
-import java.util.Stack;
-
 import org.junit.Test;
+
+import java.util.Stack;
 
 public class MinimumAbsoluteDifferenceBST {
 

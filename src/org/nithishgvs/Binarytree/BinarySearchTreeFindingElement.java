@@ -1,9 +1,9 @@
 package org.nithishgvs.Binarytree;
 
+import org.junit.Test;
+
 import java.util.LinkedList;
 import java.util.Queue;
-
-import org.junit.Test;
 
 public class BinarySearchTreeFindingElement {
 

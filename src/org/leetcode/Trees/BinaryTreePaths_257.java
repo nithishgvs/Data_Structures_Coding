@@ -1,9 +1,9 @@
 package org.leetcode.Trees;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
 
 public class BinaryTreePaths_257 {
 	

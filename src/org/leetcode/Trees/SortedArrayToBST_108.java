@@ -1,8 +1,8 @@
 package org.leetcode.Trees;
 
-import java.util.Arrays;
-
 import org.junit.Test;
+
+import java.util.Arrays;
 
 public class SortedArrayToBST_108 {
 

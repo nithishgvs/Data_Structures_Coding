@@ -1,9 +1,9 @@
 package org.leetcode.Hashing;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import org.junit.Test;
 
 public class JewelsandStones_771 {
    /**

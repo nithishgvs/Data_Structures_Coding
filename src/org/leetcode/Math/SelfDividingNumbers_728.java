@@ -1,9 +1,9 @@
 package org.leetcode.Math;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
 
 public class SelfDividingNumbers_728 {
 

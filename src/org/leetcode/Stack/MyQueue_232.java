@@ -1,9 +1,9 @@
 package org.leetcode.Stack;
 //The ask was to implement Queue using stack
 
-import java.util.Stack;
-
 import org.junit.Test;
+
+import java.util.Stack;
 
 public class MyQueue_232 {
 

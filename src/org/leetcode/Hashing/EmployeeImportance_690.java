@@ -1,11 +1,11 @@
 package org.leetcode.Hashing;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
-
-import org.junit.Test;
 
 public class EmployeeImportance_690 {
 	/**

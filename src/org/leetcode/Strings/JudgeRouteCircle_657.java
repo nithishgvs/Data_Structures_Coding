@@ -1,8 +1,8 @@
 package org.leetcode.Strings;
 
-import java.util.HashMap;
-
 import org.junit.Test;
+
+import java.util.HashMap;
 
 public class JudgeRouteCircle_657 {
 

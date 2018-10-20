@@ -1,11 +1,11 @@
 package org.leetcode.Arrays;
 
+import org.junit.Test;
+
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
-
-import org.junit.Test;
 
 public class MajorityElement_169 {
 

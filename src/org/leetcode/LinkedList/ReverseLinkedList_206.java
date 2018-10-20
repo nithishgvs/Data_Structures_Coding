@@ -1,7 +1,5 @@
 package org.leetcode.LinkedList;
 
-import org.junit.Test;
-
 public class ReverseLinkedList_206 {
 
 	public class ListNode {

@@ -1,11 +1,11 @@
 package org.leetcode.Stack;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-
-import org.junit.Test;
 
 /**
  * Worked hard with only stack,screwed and followed discussions ..have to look

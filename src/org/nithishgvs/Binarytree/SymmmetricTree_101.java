@@ -1,9 +1,9 @@
 package org.nithishgvs.Binarytree;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Collections;
-
-import org.junit.Test;
 
 public class SymmmetricTree_101 {
 

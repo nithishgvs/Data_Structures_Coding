@@ -1,11 +1,11 @@
 package org.leetcode.Arrays;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import org.junit.Test;
 
 public class DegreeofArray_697 {
 

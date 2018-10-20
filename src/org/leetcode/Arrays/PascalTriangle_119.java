@@ -1,9 +1,9 @@
 package org.leetcode.Arrays;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Test;
 
 public class PascalTriangle_119 {
 

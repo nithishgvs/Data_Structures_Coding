@@ -1,8 +1,8 @@
 package org.leetcode.BitManipulation;
 
-import java.util.Collections;
-
 import org.junit.Test;
+
+import java.util.Collections;
 
 public class AddBinary_67 {
 

@@ -1,9 +1,9 @@
 package org.leetcode.Strings;
 
+import org.junit.Test;
+
 import java.util.HashSet;
 import java.util.Set;
-
-import org.junit.Test;
 
 public class UniqueMorseCodeWords_804 {
 

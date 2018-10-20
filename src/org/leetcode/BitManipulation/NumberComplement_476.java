@@ -1,8 +1,8 @@
 package org.leetcode.BitManipulation;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class NumberComplement_476 {
 	
