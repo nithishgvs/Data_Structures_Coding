@@ -13,4 +13,10 @@ public interface Graph {
 
   List<Integer> getAdjacentVertices(int v);
 
+  int getIndegree(int v);
+
+  int getNumVertices();
+
+  int getWeightedEdge(int v1, int v2);
+
 }

@@ -23,6 +23,17 @@ public class AdjacencyMatrixGraph implements Graph {
     }
   }
 
+
+  @Override
+  public int getNumVertices() {
+    return numVertices;
+  }
+
+  @Override
+  public int getWeightedEdge(int v1, int v2) {
+    return adjacencyMatrix[v1][v2];
+  }
+
   @Override
   public void addEdge(int v1, int v2) {
     if (v1 < 0 || v1 >= numVertices || v2 < 0 || v2 >= numVertices) {
@@ -50,5 +61,21 @@ public class AdjacencyMatrixGraph implements Graph {
 
     Collections.sort(adjacentVerticesList);
     return adjacentVerticesList;
+  }
+
+  @Override
+  public int getIndegree(int v) {
+    if (v >= numVertices || v < 0) {
+      throw new IllegalArgumentException("The given vertice is invalid");
+    }
+    int indegree = 0;
+
+    for (int i = 0; i < numVertices; i++) {
+      if (adjacencyMatrix[i][v] == 1) {
+        indegree++;
+      }
+    }
+
+    return indegree;
   }
 }

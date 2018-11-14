@@ -9,7 +9,19 @@ public class AdjacencySetGraph implements Graph {
   private List<Node> verticesList = new ArrayList<>();
   private GraphType graphType = GraphType.DIRECTED;
 
-  private AdjacencySetGraph(int numVertices, GraphType graphType) {
+
+  @Override
+  public int getNumVertices() {
+    return numVertices;
+  }
+
+  @Override
+  public int getWeightedEdge(int v1, int v2) {
+    throw new IllegalArgumentException("Weight not implemented in Adjacency Set");
+  }
+
+
+  public AdjacencySetGraph(int numVertices, GraphType graphType) {
     this.numVertices = numVertices;
     this.graphType = graphType;
     for (int i = 0; i < numVertices; i++) {
@@ -35,5 +47,21 @@ public class AdjacencySetGraph implements Graph {
       throw new IllegalArgumentException("The given vertex is invalid");
     }
     return verticesList.get(v).getAdjacentVertices();
+  }
+
+  @Override
+  public int getIndegree(int v) {
+    if (v >= numVertices || v < 0) {
+      throw new IllegalArgumentException("The given vertice is invalid");
+    }
+    int indegree = 0;
+
+    for (int i = 0; i < numVertices; i++) {
+      if (getAdjacentVertices(i).contains(v)) {
+        indegree++;
+      }
+
+    }
+    return indegree;
   }
 }
