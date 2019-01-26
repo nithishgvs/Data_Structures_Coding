@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import org.junit.Test;
 
-public class UncommonWordsTwoSentences {
+public class UncommonWordsTwoSentences_884 {
 
 
   public String[] uncommonFromSentences(String A, String B) {
