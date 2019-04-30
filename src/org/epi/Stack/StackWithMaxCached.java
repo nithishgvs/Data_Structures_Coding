@@ -1,4 +1,4 @@
-package org.epi.StackQueues;
+package org.epi.Stack;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
