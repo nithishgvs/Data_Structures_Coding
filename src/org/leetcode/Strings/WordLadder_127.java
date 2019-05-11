@@ -84,7 +84,7 @@ public class WordLadder_127 {
 	@Test
 	public void test() {
 		// System.out.println(
-		// ladderLength("hit", "cog", new ArrayList<>(Arrays.asList("hot",
+		// ladderLength("hit", "cog", new ArrayList<>(ArraysEvenOdd.asList("hot",
 		// "dot", "dog", "lot", "log", "cog"))));
 
 		System.out.println(

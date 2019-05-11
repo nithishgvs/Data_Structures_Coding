@@ -11,7 +11,7 @@ public class PairSum {
      */
 	public static void findPairSum(int[] array, int sum) {
 		Arrays.sort(array);
-		System.out.println("Sorted Array using Java Arrays API");
+		System.out.println("Sorted Array using Java ArraysEvenOdd API");
 		int l = 0;
 		int h = array.length - 1;
 		while (l < h) {
