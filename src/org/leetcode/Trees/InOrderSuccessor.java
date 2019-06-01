@@ -74,6 +74,7 @@ public class InOrderSuccessor {
         current = current.right;
       } else {
         current = current.right;
+
         while (current != null) {
           prevNode = current;
           current = current.left;
