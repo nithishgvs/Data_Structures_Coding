@@ -12,11 +12,11 @@ public class BSTLevelOrderTraversal {
 	 * 
 	 * @param root
 	 */
-	public void LevelOrderTraversal(TreeNode root) {
-		Queue<TreeNode> queue = new LinkedList<>();
+	public void LevelOrderTraversal(TreeNodeCustom root) {
+		Queue<TreeNodeCustom> queue = new LinkedList<>();
 		queue.add(root);
 		while (!queue.isEmpty()) {
-			TreeNode item = queue.poll();
+			TreeNodeCustom item = queue.poll();
 			if (item.getLeftChild() != null) {
 				queue.add(item.getLeftChild());
 			}
@@ -28,9 +28,9 @@ public class BSTLevelOrderTraversal {
 
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);
@@ -49,7 +49,7 @@ public class BSTLevelOrderTraversal {
 
 	@Test
 	public void LevelOrderTraversalTest() {
-		TreeNode root = populateBinarySearchTree();
+		TreeNodeCustom root = populateBinarySearchTree();
 		System.out.println("LevelOrder Traversal");
 		LevelOrderTraversal(root);
 		System.out.println();

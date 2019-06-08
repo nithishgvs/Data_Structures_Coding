@@ -10,7 +10,7 @@ public class BSTPreorderTraversal {
 	 * 
 	 * @param root
 	 */
-	public static void PreorderTraversalRecursive(TreeNode root) {
+	public static void PreorderTraversalRecursive(TreeNodeCustom root) {
 		if (root == null) {
 			return;
 		}
@@ -24,11 +24,11 @@ public class BSTPreorderTraversal {
 	 * 
 	 * @param root
 	 */
-	public static void PreorderTraversalIterative(TreeNode root) {
-		Stack<TreeNode> stack = new Stack<>();
+	public static void PreorderTraversalIterative(TreeNodeCustom root) {
+		Stack<TreeNodeCustom> stack = new Stack<>();
 		stack.add(root);
 		while (!stack.isEmpty()) {
-			TreeNode current = stack.pop();
+			TreeNodeCustom current = stack.pop();
 			System.out.print(current.getData() + " ");
 			if (current.getRightChild() != null) {
 				stack.push(current.getRightChild());
@@ -40,9 +40,9 @@ public class BSTPreorderTraversal {
 		}
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);
@@ -61,7 +61,7 @@ public class BSTPreorderTraversal {
 
 	@Test
 	public void PreorderRecursiveTest() {
-		TreeNode root = populateBinarySearchTree();
+		TreeNodeCustom root = populateBinarySearchTree();
 		System.out.println("PreOrder Recursive");
 		PreorderTraversalRecursive(root);
 		System.out.println();
@@ -69,7 +69,7 @@ public class BSTPreorderTraversal {
 
 	@Test
 	public void PreorderIterativeTest() {
-		TreeNode root = populateBinarySearchTree();
+		TreeNodeCustom root = populateBinarySearchTree();
 		System.out.println("PreOrder Iterative");
 		PreorderTraversalIterative(root);
 		System.out.println();

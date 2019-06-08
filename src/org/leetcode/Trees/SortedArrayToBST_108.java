@@ -12,14 +12,14 @@ public class SortedArrayToBST_108 {
 	 * @param array
 	 * @return
 	 */
-	public static TreeNode sortedArrayToBST(int[] array) {
+	public static TreeNodeCustom sortedArrayToBST(int[] array) {
 		if (array.length == 0) {
 			return null;
 		} else if (array.length == 1) {
-			return new TreeNode(array[0]);
+			return new TreeNodeCustom(array[0]);
 		}
 		int mid = (array.length) / 2 + (array.length) % 2;
-		TreeNode root = new TreeNode(array[mid]);
+		TreeNodeCustom root = new TreeNodeCustom(array[mid]);
 		int[] leftArray = Arrays.copyOfRange(array, 0, mid);
 		int[] rightArray = Arrays.copyOfRange(array, mid + 1, array.length);
 		root.setLeftChild(sortedArrayToBST(leftArray));
@@ -31,7 +31,7 @@ public class SortedArrayToBST_108 {
 	public void sortedArrayToBstTest() {
 		int[] array = { -2, 0, 1, 2, 3, 4, 5, 100 };
 		BinarySearchTreeInsertion bst = new BinarySearchTreeInsertion();
-		TreeNode output = sortedArrayToBST(array);
+		TreeNodeCustom output = sortedArrayToBST(array);
 		System.out.println("InOrder traversal of this Output Tree");
 		bst.inOrderRecursive(output);
 	}

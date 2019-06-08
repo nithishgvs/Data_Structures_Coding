@@ -11,7 +11,7 @@ public class BSTPostOrderTraversal {
 	 * 
 	 * @param root
 	 */
-	public static void PostorderTraversalRecursive(TreeNode root) {
+	public static void PostorderTraversalRecursive(TreeNodeCustom root) {
 		if (root == null) {
 			return;
 		}
@@ -25,12 +25,12 @@ public class BSTPostOrderTraversal {
 	 * 
 	 * @param root
 	 */
-	public static void PostorderTraversalIterative(TreeNode root) {
-		Stack<TreeNode> stack1 = new Stack<>();
-		Stack<TreeNode> stack2 = new Stack<>();
+	public static void PostorderTraversalIterative(TreeNodeCustom root) {
+		Stack<TreeNodeCustom> stack1 = new Stack<>();
+		Stack<TreeNodeCustom> stack2 = new Stack<>();
 		stack1.push(root);
 		while (!stack1.isEmpty()) {
-			TreeNode item = stack1.pop();
+			TreeNodeCustom item = stack1.pop();
 			stack2.push(item);
 			if (item.getLeftChild() != null) {
 				stack1.push(item.getLeftChild());
@@ -44,9 +44,9 @@ public class BSTPostOrderTraversal {
 		}
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);
@@ -65,7 +65,7 @@ public class BSTPostOrderTraversal {
 
 	@Test
 	public void PostOrderRecursiveTest() {
-		TreeNode root = populateBinarySearchTree();
+		TreeNodeCustom root = populateBinarySearchTree();
 		System.out.println("PostOrder Recursive");
 		PostorderTraversalRecursive(root);
 		System.out.println();
@@ -73,7 +73,7 @@ public class BSTPostOrderTraversal {
 
 	@Test
 	public void PostOrderIterativeTest() {
-		TreeNode root = populateBinarySearchTree();
+		TreeNodeCustom root = populateBinarySearchTree();
 		System.out.println("PostOrder Iterative");
 		PostorderTraversalIterative(root);
 		System.out.println();

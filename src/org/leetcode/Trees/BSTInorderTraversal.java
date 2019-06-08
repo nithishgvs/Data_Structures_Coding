@@ -11,7 +11,7 @@ public class BSTInorderTraversal {
 	 * 
 	 * @param root
 	 */
-	public static void InorderTraversalRecursive(TreeNode root) {
+	public static void InorderTraversalRecursive(TreeNodeCustom root) {
 		if (root == null) {
 			return;
 		}
@@ -25,9 +25,9 @@ public class BSTInorderTraversal {
 	 * 
 	 * @param root
 	 */
-	public static void InorderTraversalIterative(TreeNode root) {
-		Stack<TreeNode> stack = new Stack<TreeNode>();
-		TreeNode currentRoot = root;
+	public static void InorderTraversalIterative(TreeNodeCustom root) {
+		Stack<TreeNodeCustom> stack = new Stack<TreeNodeCustom>();
+		TreeNodeCustom currentRoot = root;
 		while (true) {
 			if (currentRoot != null) {
 				stack.add(currentRoot);
@@ -36,7 +36,7 @@ public class BSTInorderTraversal {
 				if (stack.isEmpty()) {
 					break;
 				}
-				TreeNode poppedElem = stack.pop();
+				TreeNodeCustom poppedElem = stack.pop();
 				System.out.print(poppedElem.getData() + " ");
 				currentRoot = poppedElem.getRightChild();
 			}
@@ -44,9 +44,9 @@ public class BSTInorderTraversal {
 
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);
@@ -65,7 +65,7 @@ public class BSTInorderTraversal {
 
 	@Test
 	public void InorderRecursiveTest() {
-		TreeNode root = populateBinarySearchTree();
+		TreeNodeCustom root = populateBinarySearchTree();
 		System.out.println("Inorder Recursive");
 		InorderTraversalRecursive(root);
 		System.out.println("");
@@ -74,7 +74,7 @@ public class BSTInorderTraversal {
 
 	@Test
 	public void InorderIterativeTest() {
-		TreeNode root = populateBinarySearchTree();
+		TreeNodeCustom root = populateBinarySearchTree();
 		System.out.println("Inorder Iterative");
 		InorderTraversalIterative(root);
 		System.out.println("");

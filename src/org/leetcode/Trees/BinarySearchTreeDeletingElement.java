@@ -22,7 +22,7 @@ public class BinarySearchTreeDeletingElement {
 	// empty. In this particular case, inorder successor can be obtained
 	// by finding the minimum value in right child of the node
 	
-	public TreeNode deleteElementRecursive(TreeNode rootNode, int data) {
+	public TreeNodeCustom deleteElementRecursive(TreeNodeCustom rootNode, int data) {
 
 		if (rootNode == null) {
 			System.out.println("Element Not Found! OOPS");
@@ -57,8 +57,8 @@ public class BinarySearchTreeDeletingElement {
 		return rootNode;
 	}
 
-	private int findInorderSuccessor(TreeNode rightChild) {
-		TreeNode temp = rightChild;
+	private int findInorderSuccessor(TreeNodeCustom rightChild) {
+		TreeNodeCustom temp = rightChild;
 
 		while (temp.getLeftChild() != null) {
 			temp = temp.getLeftChild();
@@ -68,7 +68,7 @@ public class BinarySearchTreeDeletingElement {
 
 	@Test
 	public void deleteElementRecursiveTest() {
-		TreeNode rootNode = populateBinarySearchTree();
+		TreeNodeCustom rootNode = populateBinarySearchTree();
 		BinarySearchTreeDeletingElement deleteElement = new BinarySearchTreeDeletingElement();
 		deleteElement.deleteElementRecursive(rootNode, 78);
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
@@ -76,9 +76,9 @@ public class BinarySearchTreeDeletingElement {
 
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);

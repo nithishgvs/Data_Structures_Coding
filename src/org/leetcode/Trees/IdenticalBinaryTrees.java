@@ -13,7 +13,7 @@ public class IdenticalBinaryTrees {
 	 * @param root2
 	 * @return
 	 */
-	public static boolean identicalBSTRecursive(TreeNode root1, TreeNode root2) {
+	public static boolean identicalBSTRecursive(TreeNodeCustom root1, TreeNodeCustom root2) {
 		if (root1 == null && root2 == null) {
 			return true;
 		} else {
@@ -36,19 +36,19 @@ public class IdenticalBinaryTrees {
 	 * @param root2
 	 * @return
 	 */
-	public static boolean identicalBSTIterative(TreeNode root1, TreeNode root2) {
+	public static boolean identicalBSTIterative(TreeNodeCustom root1, TreeNodeCustom root2) {
 
 		if (root1 == null && root2 == null) {
 			return true;
 		}
-		Queue<TreeNode> queue1 = new LinkedList<>();
-		Queue<TreeNode> queue2 = new LinkedList<>();
+		Queue<TreeNodeCustom> queue1 = new LinkedList<>();
+		Queue<TreeNodeCustom> queue2 = new LinkedList<>();
 		queue1.add(root1);
 		queue2.add(root2);
 
 		while (!queue1.isEmpty() && !queue2.isEmpty()) {
-			TreeNode elem1 = queue1.poll();
-			TreeNode elem2 = queue2.poll();
+			TreeNodeCustom elem1 = queue1.poll();
+			TreeNodeCustom elem2 = queue2.poll();
 			if (elem1 != null && elem2 != null) {
 				if (elem1.getData() == elem2.getData()) {
 					queue1.add(elem1.getLeftChild());
@@ -68,35 +68,35 @@ public class IdenticalBinaryTrees {
 
 	@Test
 	public void identicalBSTRecursivePositiveTest() {
-		TreeNode testNode = populateBinarySearchTree();
-		TreeNode testNode1 = populateBinarySearchTree1();
+		TreeNodeCustom testNode = populateBinarySearchTree();
+		TreeNodeCustom testNode1 = populateBinarySearchTree1();
 		System.out.println("Positive Recursive Test Result: " + identicalBSTRecursive(testNode, testNode1));
 	}
 
 	@Test
 	public void identicalBSTRecursiveNegativeTest() {
-		TreeNode testNode = populateBinarySearchTree();
-		TreeNode testNode2 = populateBinarySearchTree2();
+		TreeNodeCustom testNode = populateBinarySearchTree();
+		TreeNodeCustom testNode2 = populateBinarySearchTree2();
 		System.out.println("Negative Recursive Test Result: " + identicalBSTRecursive(testNode, testNode2));
 	}
 
 	@Test
 	public void identicalBSTIterativePositiveTest() {
-		TreeNode testNode = populateBinarySearchTree();
-		TreeNode testNode1 = populateBinarySearchTree1();
+		TreeNodeCustom testNode = populateBinarySearchTree();
+		TreeNodeCustom testNode1 = populateBinarySearchTree1();
 		System.out.println("Positive Iterative Test Result: " + identicalBSTIterative(testNode, testNode1));
 	}
 
 	@Test
 	public void identicalBSTIterativeNegativeTest() {
-		TreeNode testNode = populateBinarySearchTree();
-		TreeNode testNode2 = populateBinarySearchTree2();
+		TreeNodeCustom testNode = populateBinarySearchTree();
+		TreeNodeCustom testNode2 = populateBinarySearchTree2();
 		System.out.println("Negative Iterative Test Result: " + identicalBSTIterative(testNode, testNode2));
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 10);
 		binarySearchTree.insertionIterative(rootNode, 5);
 		binarySearchTree.insertionIterative(rootNode, 30);
@@ -112,9 +112,9 @@ public class IdenticalBinaryTrees {
 		return rootNode;
 	}
 
-	private TreeNode populateBinarySearchTree1() {
+	private TreeNodeCustom populateBinarySearchTree1() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 10);
 		binarySearchTree.insertionIterative(rootNode, 5);
 		binarySearchTree.insertionIterative(rootNode, 30);
@@ -130,9 +130,9 @@ public class IdenticalBinaryTrees {
 		return rootNode;
 	}
 
-	private TreeNode populateBinarySearchTree2() {
+	private TreeNodeCustom populateBinarySearchTree2() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 10);
 		binarySearchTree.insertionIterative(rootNode, 5);
 		binarySearchTree.insertionIterative(rootNode, 30);

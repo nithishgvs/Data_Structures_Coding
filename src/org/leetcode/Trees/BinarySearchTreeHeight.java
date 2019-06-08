@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class BinarySearchTreeHeight {
 
-	public static int heightOfBSTRecursive(TreeNode rootNode) {
+	public static int heightOfBSTRecursive(TreeNodeCustom rootNode) {
 		if (rootNode == null) {
 			return 0;
 		}
@@ -15,15 +15,15 @@ public class BinarySearchTreeHeight {
 
 	@Test
 	public void heightOfBSTTest() {
-		TreeNode rootNode = populateBinarySearchTree();
+		TreeNodeCustom rootNode = populateBinarySearchTree();
 		System.out.println(heightOfBSTRecursive(rootNode));
 		rootNode = populateBinarySearchTree1();
 		System.out.println(heightOfBSTRecursive(rootNode));
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 10);
 		binarySearchTree.insertionIterative(rootNode, 5);
 		binarySearchTree.insertionIterative(rootNode, 30);
@@ -39,9 +39,9 @@ public class BinarySearchTreeHeight {
 		return rootNode;
 	}
 
-	private TreeNode populateBinarySearchTree1() {
+	private TreeNodeCustom populateBinarySearchTree1() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 10);
 		binarySearchTree.insertionIterative(rootNode, 5);
 		binarySearchTree.insertionIterative(rootNode, 30);

@@ -14,7 +14,7 @@ public class BinarySearchTreeFindingElement {
 	 * @param data
 	 * @return
 	 */
-	public TreeNode findElementRecursively(TreeNode rootNode, int data) {
+	public TreeNodeCustom findElementRecursively(TreeNodeCustom rootNode, int data) {
 
 		if (rootNode == null) {
 			return null;
@@ -37,18 +37,18 @@ public class BinarySearchTreeFindingElement {
 	 * @param rootNode
 	 * @param data
 	 */
-	public void findElementIteratively(TreeNode rootNode, int data) {
+	public void findElementIteratively(TreeNodeCustom rootNode, int data) {
 
 		if (rootNode == null) {
 			System.out.println("Tree is Empty..Element not found");
 			return;
 		}
 
-		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		Queue<TreeNodeCustom> queue = new LinkedList<TreeNodeCustom>();
 		queue.add(rootNode);
 
 		while (!queue.isEmpty()) {
-			TreeNode tempNode = queue.poll();
+			TreeNodeCustom tempNode = queue.poll();
 
 			if (tempNode == null) {
 				System.out.println("Element Not found:OOPS!");
@@ -70,9 +70,9 @@ public class BinarySearchTreeFindingElement {
 	@Test
 	public void findElementRecursivelyTest() {
 
-		TreeNode rootNode = populateBinarySearchTree();
+		TreeNodeCustom rootNode = populateBinarySearchTree();
 		BinarySearchTreeFindingElement findElement = new BinarySearchTreeFindingElement();
-		TreeNode output = findElement.findElementRecursively(rootNode, 68);
+		TreeNodeCustom output = findElement.findElementRecursively(rootNode, 68);
 
 		if (output == null) {
 			System.out.println("Element Not found:OOPS!");
@@ -82,14 +82,14 @@ public class BinarySearchTreeFindingElement {
 
 	@Test
 	public void findElementIterativelyTest() {
-		TreeNode rootNode = populateBinarySearchTree();
+		TreeNodeCustom rootNode = populateBinarySearchTree();
 		BinarySearchTreeFindingElement findElement = new BinarySearchTreeFindingElement();
 		findElement.findElementIteratively(rootNode, 60);
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);

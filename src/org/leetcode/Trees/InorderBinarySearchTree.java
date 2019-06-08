@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class InorderBinarySearchTree {
 
-	public void inOrderRecursive(TreeNode rootNode) {
+	public void inOrderRecursive(TreeNodeCustom rootNode) {
 		if (rootNode == null) {
 			return;
 		}
@@ -16,13 +16,13 @@ public class InorderBinarySearchTree {
 	@Test
 	public void inorderRecursiveTest() {
 
-		TreeNode rootNode = populateBinarySearchTree();
+		TreeNodeCustom rootNode = populateBinarySearchTree();
 		inOrderRecursive(rootNode);
 	}
 
-	private TreeNode populateBinarySearchTree() {
+	private TreeNodeCustom populateBinarySearchTree() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);

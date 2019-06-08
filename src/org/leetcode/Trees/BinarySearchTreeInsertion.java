@@ -14,10 +14,10 @@ public class BinarySearchTreeInsertion {
 	 * @param data
 	 * @return
 	 */
-	public TreeNode insertionRecursive(TreeNode rootNode, int data) {
+	public TreeNodeCustom insertionRecursive(TreeNodeCustom rootNode, int data) {
 
 		if (rootNode == null) {
-			rootNode = new TreeNode(data);
+			rootNode = new TreeNodeCustom(data);
 			return rootNode;
 		}
 
@@ -37,25 +37,25 @@ public class BinarySearchTreeInsertion {
 	 * @param data
 	 * @return
 	 */
-	public TreeNode insertionIterative(TreeNode rootNode, int data) {
+	public TreeNodeCustom insertionIterative(TreeNodeCustom rootNode, int data) {
 
 		if (rootNode == null) {
-			rootNode = new TreeNode(data);
+			rootNode = new TreeNodeCustom(data);
 			return rootNode;
 		}
 
-		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		Queue<TreeNodeCustom> queue = new LinkedList<TreeNodeCustom>();
 		queue.add(rootNode);
 
 		while (!queue.isEmpty()) {
-			TreeNode tempNode = queue.poll();
+			TreeNodeCustom tempNode = queue.poll();
 
 			if (tempNode != null) {
 				if (tempNode.getLeftChild() == null && tempNode.getData() > data) {
-					tempNode.setLeftChild(new TreeNode(data));
+					tempNode.setLeftChild(new TreeNodeCustom(data));
 					return rootNode;
 				} else if (tempNode.getRightChild() == null) {
-					tempNode.setRightChild(new TreeNode(data));
+					tempNode.setRightChild(new TreeNodeCustom(data));
 					return rootNode;
 				}
 			}
@@ -76,7 +76,7 @@ public class BinarySearchTreeInsertion {
 	 * 
 	 * @param root
 	 */
-	public void inOrderRecursive(TreeNode rootNode) {
+	public void inOrderRecursive(TreeNodeCustom rootNode) {
 		if (rootNode == null)
 			return;
 		inOrderRecursive(rootNode.getLeftChild());
@@ -87,7 +87,7 @@ public class BinarySearchTreeInsertion {
 	@Test
 	public void insertionRecursiveTest() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		System.out.println("Insertion Method calls-Recursive");
 		rootNode = binarySearchTree.insertionRecursive(rootNode, 52);
 		binarySearchTree.insertionRecursive(rootNode, 33);
@@ -109,7 +109,7 @@ public class BinarySearchTreeInsertion {
 	public void insertionIterativeTest() {
 		BinarySearchTreeInsertion binarySearchTree = new BinarySearchTreeInsertion();
 		System.out.println("Insertion Method calls-Iterative");
-		TreeNode rootNode = null;
+		TreeNodeCustom rootNode = null;
 		rootNode = binarySearchTree.insertionIterative(rootNode, 52);
 		binarySearchTree.insertionIterative(rootNode, 33);
 		binarySearchTree.insertionIterative(rootNode, 65);
