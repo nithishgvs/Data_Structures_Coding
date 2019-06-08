@@ -1,6 +1,5 @@
 package org.leetcode.Trees;
 
-import java.util.List;
 import org.junit.Test;
 
 //Tried and screwed
@@ -23,10 +22,6 @@ public class HouseRobberIII_337 {
     return -1;
   }
 
-  private void houseRobberHelper(TreeNode left, TreeNode right, boolean b, List<Integer> robList) {
-
-
-  }
 
 
   @Test
