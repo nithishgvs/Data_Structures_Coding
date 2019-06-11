@@ -79,7 +79,6 @@ public class Dijkstra {
       VertexInfo vertexInfo = queue.poll();
       int currentVertex = vertexInfo.getVertexId();
       for (Integer neighbour : graph.getAdjacentVertices(currentVertex)) {
-
         int distance =
             distanceTable.get(currentVertex).getDistance() + graph
                 .getWeightedEdge(currentVertex, neighbour);
