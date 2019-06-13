@@ -1,28 +1,16 @@
 package org.leetcode.Trees;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.junit.Test;
 
 public class IncreasingOrderSearchTree_897 {
 
-  public class TreeNode {
-
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-      val = x;
-    }
-  }
 
   List<Integer> inorderList = new ArrayList<>();
 
   public TreeNode increasingBST(TreeNode root) {
     inOrder(root);
-    Collections.sort(inorderList);
     return insertBST(inorderList);
   }
 
@@ -69,6 +57,16 @@ public class IncreasingOrderSearchTree_897 {
     root.right.right.right = new TreeNode(9);
     increasingBST(root);
     System.out.println(Integer.MAX_VALUE);
+  }
+
+
+  @Test
+  public void test2() {
+    HelperTree helperTree = new HelperTree();
+    TreeNode treeNode = helperTree.generateBinaryTree(new Integer[]{379, 826});
+    increasingBST(treeNode);
+
+
   }
 
 }
