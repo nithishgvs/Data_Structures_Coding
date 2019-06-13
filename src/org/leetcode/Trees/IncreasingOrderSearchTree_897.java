@@ -1,6 +1,7 @@
 package org.leetcode.Trees;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.junit.Test;
 
@@ -21,11 +22,8 @@ public class IncreasingOrderSearchTree_897 {
 
   public TreeNode increasingBST(TreeNode root) {
     inOrder(root);
-    root = new TreeNode(inorderList.get(0));
-    for (int i = 1; i < inorderList.size(); i++) {
-      insertionRecursive(root, inorderList.get(i));
-    }
-    return root;
+    Collections.sort(inorderList);
+    return insertBST(inorderList);
   }
 
   private void inOrder(TreeNode root) {
@@ -38,21 +36,22 @@ public class IncreasingOrderSearchTree_897 {
 
   }
 
-  public TreeNode insertionRecursive(TreeNode root, int data) {
+  private TreeNode insertBST(List<Integer> inorderList) {
+    TreeNode root = null;
+    TreeNode current = null;
+    for (int i = 0; i < inorderList.size(); i++) {
+      if (root == null) {
+        root = new TreeNode(inorderList.get(i));
+        current = root;
+      } else {
+        current.right = new TreeNode(inorderList.get(i));
+        current = current.right;
+      }
 
-    if (root == null) {
-      root = new TreeNode(data);
-      return root;
     }
-
-    if (root.val > data) {
-      root.left = insertionRecursive(root.left, data);
-    } else if (root.val < data) {
-      root.right = insertionRecursive(root.right, data);
-    }
-
     return root;
   }
+
 
   @Test
   public void test() {
