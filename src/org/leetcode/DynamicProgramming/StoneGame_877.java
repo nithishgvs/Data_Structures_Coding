@@ -5,7 +5,9 @@ import org.junit.Test;
 
 public class StoneGame_877 {
 
-
+  /**
+   * worst question
+   */
   public boolean stoneGame(int[] piles) {
 
     if (piles.length == 0) {
@@ -73,14 +75,13 @@ public class StoneGame_877 {
 
 
   public boolean stoneGame1(int[] piles) {
-    int alex=0;
-    int lee=0;
-    for(int i=0;i<piles.length/2;i++)
-    {
-      alex=alex+Math.max(piles[i],piles[piles.length-i-1]);
-      lee=lee+Math.min(piles[i],piles[piles.length-i-1]);
+    int alex = 0;
+    int lee = 0;
+    for (int i = 0; i < piles.length / 2; i++) {
+      alex = alex + Math.max(piles[i], piles[piles.length - i - 1]);
+      lee = lee + Math.min(piles[i], piles[piles.length - i - 1]);
     }
-    return alex>lee;
+    return alex > lee;
   }
 
 
