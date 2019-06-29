@@ -6,7 +6,6 @@ public class RemoveNthNodeFromEndofList_19 {
 
   public ListNode removeNthFromEnd(ListNode head, int n) {
 
-
     return head;
 
   }

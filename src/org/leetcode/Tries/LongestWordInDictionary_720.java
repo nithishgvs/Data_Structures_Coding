@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class LongestWordInDictionary {
+public class LongestWordInDictionary_720 {
 
 	class TrieNode {
 

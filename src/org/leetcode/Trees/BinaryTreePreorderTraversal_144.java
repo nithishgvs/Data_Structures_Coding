@@ -1,11 +1,9 @@
 package org.leetcode.Trees;
 
-import org.junit.Test;
-import sun.reflect.generics.tree.Tree;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import org.junit.Test;
 
 public class BinaryTreePreorderTraversal_144 {
 
