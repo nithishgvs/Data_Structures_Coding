@@ -16,22 +16,11 @@ public class GroupAnagrams_49 {
     for (String str : strs) {
       char[] arr = str.toCharArray();
       Arrays.sort(arr);
-      List<String> anagramList = null;
-      if (!anagramMap.containsKey(String.valueOf(arr))) {
-        anagramList = new ArrayList<>();
-        anagramList.add(str);
-        anagramMap.put(String.valueOf(arr), anagramList);
-      } else {
-        anagramList = anagramMap.get(String.valueOf(arr));
-        anagramList.add(str);
-        anagramMap.put(String.valueOf(arr), anagramList);
-      }
+      String tmp = new String(arr);
+      anagramMap.putIfAbsent(tmp, new ArrayList<>());
+      anagramMap.get(tmp).add(str);
     }
-
-    for (Map.Entry<String, List<String>> entry : anagramMap.entrySet()) {
-      outputList.add(entry.getValue());
-    }
-
+    outputList.addAll(anagramMap.values());
     return outputList;
 
   }
@@ -40,7 +29,21 @@ public class GroupAnagrams_49 {
   @Test
   public void testGroupAnagrams() {
     String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-    groupAnagrams(strs);
+    groupAnagrams(strs).forEach(v -> v.forEach(v1 -> System.out.println(v1)));
+  }
+  //["cab","tin","pew","duh","may","ill","buy","bar","max","doc"]
+
+  @Test
+  public void testGroupAnagrams2() {
+    String[] strs = {"cab", "tin", "pew", "duh", "may", "ill", "buy", "bar", "max", "doc"};
+    groupAnagrams(strs).forEach(v -> v.forEach(v1 -> System.out.println(v1)));
+  }
+
+
+  @Test
+  public void testGroupAnagrams3() {
+    String[] strs = {"duh", "ill"};
+    groupAnagrams(strs).forEach(v -> v.forEach(v1 -> System.out.println(v1)));
   }
 
 
