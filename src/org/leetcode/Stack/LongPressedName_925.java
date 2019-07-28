@@ -6,25 +6,41 @@ public class LongPressedName_925 {
 
 
   public boolean isLongPressedName(String name, String typed) {
-    char temp = '\0';
-    for (int i = 0; i < typed.length(); i++) {
-      if (temp == typed.charAt(i)) {
-        if (i == typed.length() - 1 && typed.charAt(typed.length() - 1) == name
-            .charAt(name.length() - 1)) {
-          if (name.substring(name.length() - 2).equals(typed.substring(typed.length() - 2))) {
-            continue;
-          } else {
-            typed = typed.substring(0, i) + " " + typed.substring(i + 1);
-          }
+
+    if (name.length() > typed.length()) {
+      return false;
+    }
+
+    if (name.length() == 0 || typed.length() == 0) {
+      return false;
+    }
+
+    for (int i = 0; i < name.length(); i++) {
+      char ch = name.charAt(i);
+
+      while (i + 1 < name.length() && name.charAt(i) == name.charAt(i + 1) && typed.length() > 1
+          && typed.charAt(1) == ch) {
+        i++;
+      }
+
+      boolean flag = false;
+      if (typed.length() == 0) {
+        return false;
+      }
+      while (typed.length() > 0) {
+        if (typed.charAt(0) == ch) {
+          flag = true;
+          typed = typed.substring(1);
+          continue;
+        } else if (!flag) {
+          return false;
+        } else {
+          break;
         }
-        typed = typed.substring(0, i) + " " + typed.substring(i + 1);
-        temp = '\0';
-      } else {
-        temp = typed.charAt(i);
       }
     }
 
-    return typed.replaceAll(" ", "").equals(name);
+    return true;
   }
 
 
