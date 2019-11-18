@@ -83,7 +83,7 @@ public class LongestCommonPrefix_14 {
   @Test
   public void test1() {
     System.out.println(longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
-  }//["","b"]
+  }
 
 
   @Test

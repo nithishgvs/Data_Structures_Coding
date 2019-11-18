@@ -1,4 +1,4 @@
-package org.leetcode.Stack;
+package org.leetcode.StackandQueue;
 //The ask was to implement Queue using stack
 
 import org.junit.Test;

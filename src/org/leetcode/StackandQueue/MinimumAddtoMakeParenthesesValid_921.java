@@ -1,4 +1,4 @@
-package org.leetcode.Stack;
+package org.leetcode.StackandQueue;
 
 import java.util.Stack;
 import org.junit.Test;

@@ -123,4 +123,11 @@ public class Trie {
     testTrie.delete("abc");
   }
 
+  @Test
+  public void test1() {
+    Trie testTrie = new Trie();
+    testTrie.insert("a");
+    testTrie.insert("b");
+    testTrie.insert("abc");
+  }
 }
