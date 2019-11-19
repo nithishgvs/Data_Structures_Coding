@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import org.junit.Test;
 
 public class MostCommonWord_819 {
@@ -26,7 +27,7 @@ public class MostCommonWord_819 {
           map.put(a, 0);
         }
 
-        int temp=map.get(a) + 1;
+        int temp = map.get(a) + 1;
         if (max < temp) {
           max = temp;
           word = a;
@@ -41,6 +42,30 @@ public class MostCommonWord_819 {
 //    Collections.sort(list, (v1, v2) -> v2.getValue() - v1.getValue());
     return word;
 
+  }
+
+
+  public String mostCommonWord1(String paragraph, String[] banned) {
+    String array = paragraph.toLowerCase().replaceAll("[^a-zA-Z\\s+]", " ");
+    String[] splitStr = array.split("\\s+");
+    HashMap<String, Integer> countMap = new HashMap<>();
+    List<String> bannedList = Arrays.asList(banned);
+    for (int i = 0; i < splitStr.length; i++) {
+      if (!bannedList.contains(splitStr[i])) {
+        if (countMap.containsKey(splitStr[i])) {
+          countMap.put(splitStr[i], countMap.get(splitStr[i]) + 1);
+        } else {
+          countMap.put(splitStr[i], 1);
+        }
+      }
+    }
+
+    PriorityQueue<Map.Entry<String, Integer>> priorityQueue = new PriorityQueue<>(
+        (a, b) -> b.getValue() - a.getValue());
+
+    priorityQueue.addAll(countMap.entrySet());
+
+    return priorityQueue.peek().getKey();
   }
 
   public String mostCommonWord(String paragraph, String[] banned) {
@@ -69,14 +94,16 @@ public class MostCommonWord_819 {
   public void testMostCommonWord() {
     String paragraph = "Bob! hit a ball, the hit BALL flew far after it was hit.";
     String[] bannedwords = new String[]{"hit"};
-    System.out.println(mostCommonWord2(paragraph, bannedwords));
+    System.out.println(mostCommonWord(paragraph, bannedwords));
+    System.out.println(mostCommonWord1(paragraph, bannedwords));
   }
 
   @Test
   public void testMostCommonWord2() {
     String paragraph = "a, a, a, a, b,b,b,c, c";
     String[] bannedwords = new String[]{"a"};
-    System.out.println(mostCommonWord2(paragraph, bannedwords));
+    System.out.println(mostCommonWord(paragraph, bannedwords));
+    System.out.println(mostCommonWord1(paragraph, bannedwords));
   }
 
 }
