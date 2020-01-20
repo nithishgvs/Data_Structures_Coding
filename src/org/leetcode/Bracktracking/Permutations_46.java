@@ -7,38 +7,39 @@ import org.junit.Test;
 public class Permutations_46 {
 
 
-  List<List<Integer>> finalList = new ArrayList<>();
-
   public List<List<Integer>> permute(int[] nums) {
 
-    permuteHelper(nums, 0);
-    return finalList;
+    List<List<Integer>> list = new ArrayList<>();
+
+    permuteHelper(list, 0, nums.length - 1, nums);
+
+    return list;
+
   }
 
-  private void permuteHelper(int[] nums, int i) {
-    if (nums.length == 0 || i >= nums.length) {
-      return;
-    }
+  private void permuteHelper(List<List<Integer>> list, int l, int h, int[] nums) {
 
-    if (i == nums.length - 1) {
-      ArrayList<Integer> list = new ArrayList<>();
+    if (l == h) {
+      ArrayList<Integer> tempList = new ArrayList<>();
       for (int x : nums) {
-        list.add(x);
+        tempList.add(x);
       }
-      finalList.add(list);
+      list.add(tempList);
     }
 
-    for (int k = i; k < nums.length; k++) {
-      swapNums(nums, k, i);
-      permuteHelper(nums, i + 1);
-      swapNums(nums, k, i);
+    for (int i = l; i <= h; i++) {
+      nums = swapIntegers(nums, i, l);
+      permuteHelper(list, l + 1, h, nums);
+      nums = swapIntegers(nums, i, l);
     }
+
   }
 
-  public void swapNums(int[] nums, int i, int j) {
-    int x = nums[i];
-    nums[i] = nums[j];
-    nums[j] = x;
+  private int[] swapIntegers(int[] nums, int i, int l) {
+    int temp = nums[i];
+    nums[i] = nums[l];
+    nums[l] = temp;
+    return nums;
   }
 
   @Test

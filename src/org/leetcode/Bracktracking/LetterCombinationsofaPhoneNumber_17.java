@@ -55,7 +55,7 @@ public class LetterCombinationsofaPhoneNumber_17 {
 
   @Test
   public void test1() {
-    letterCombinations("23").forEach(k -> System.out.println(k));
+    letterCombinations("234").forEach(k -> System.out.println(k));
   }
 
 }

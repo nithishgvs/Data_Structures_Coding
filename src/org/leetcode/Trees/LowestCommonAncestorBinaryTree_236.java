@@ -46,7 +46,7 @@ public class LowestCommonAncestorBinaryTree_236 {
         root.right.right = new TreeNode(78);
         root.right.right.left = new TreeNode(72);
         root.right.right.right = new TreeNode(90);
-        System.out.println(lowestCommonAncestor(root, root.left.right, root.right.right.right).val);
+        System.out.println(lowestCommonAncestor(root, root, root.right.right.right).val);
     }
 
     @Test
