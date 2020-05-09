@@ -1,4 +1,4 @@
-package org.leetcode.Arrays;
+package org.leetcode.SlidingWindowTechnique;
 
 import java.util.PriorityQueue;
 import org.junit.Test;
