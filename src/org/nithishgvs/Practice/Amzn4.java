@@ -1,23 +1,18 @@
-package org.leetcode.Strings;
+package org.nithishgvs.Practice;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import org.junit.Test;
 
-public class ReorderLogFiles_937 {
+public class Amzn4 {
 
-  public String[] reorderLogFiles(String[] logs) {
 
-    if (logs.length == 0 || logs.length == 1) {
+  public List<String> reorderLines(int lofFileSize, List<String> logs) {
+
+    if (logs.size() == 0 || logs.size() == 1) {
       return logs;
-    }
-
-    List<String> list = new ArrayList<>();
-    for (String log : logs) {
-      list.add(log);
     }
 
     Comparator<String> comparator = new Comparator<String>() {
@@ -50,33 +45,39 @@ public class ReorderLogFiles_937 {
       }
     };
 
-    Collections.sort(list, comparator);
+    Collections.sort(logs, comparator);
 
-    String[] arr = new String[list.size()];
+    return logs;
 
-    for (int i = 0; i < list.size(); i++) {
-      arr[i] = list.get(i);
-    }
-
-    return arr;
   }
 
 
   @Test
-  public void test1() {
-    String[] arr = reorderLogFiles(
-        new String[]{"a1 9 2 3 1", "g1 act car", "zo4 4 7", "ab1 off key dog", "a8 act zoo",
-            "a2 act car"});
-    System.out.println(Arrays.toString(arr));
+  public void test() {
+    List<String> logs = new ArrayList<>();
+    logs.add(new String("a1 9 2 3 1"));
+    logs.add(new String("g1 act car"));
+    logs.add(new String("zo4 4 7"));
+    //logs.add(new String("ab1 off key dog"));
+    //logs.add(new String("a8 act zoo"));
+
+    List<String> output = reorderLines(5, logs);
+    System.out.println(output);
   }
+
 
   @Test
   public void test2() {
-    String[] arr = reorderLogFiles(
-        new String[]{"a1 9 2 3 1", "g1 act car", "zo4 4 7", "ab1 off key dog", "a8 act zoo",
-            "a2 act car"});
-    System.out.println(Arrays.toString(arr));
+    List<String> logs = new ArrayList<>();
+    logs.add(new String("a1 9 2 3 1"));
+    logs.add(new String("g1 act car"));
+    logs.add(new String("zo4 4 7"));
+    logs.add(new String("ab1 off key dog"));
+    logs.add(new String("a8 act zoo"));
 
+    List<String> output = reorderLines(5, logs);
+    System.out.println(output);
   }
+
 
 }
