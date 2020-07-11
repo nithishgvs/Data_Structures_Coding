@@ -1,92 +1,49 @@
 package org.leetcode.SlidingWindowTechnique;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import org.junit.Test;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LongestSubstringWithoutRepeatingCharacters_3 {
 
 
   public int lengthOfLongestSubstring(String s) {
-    int max = 0;
-    if (s == null || s.length() == 0) {
-      return max;
-    }
+    int length = 0;
+    int start = 0;
+    int end = 0;
 
-    Set<Character> set = new LinkedHashSet<>();
-    for (char ch : s.toCharArray()) {
-      if (!set.contains(ch)) {
-        set.add(ch);
-      } else {
-        List<Character> list = new ArrayList<>(set);
-        if (list.get(0) == ch) {
-          list.remove(0);
-          list.add(ch);
-          set.removeAll(set);
-          set.addAll(list);
+    Map<Character, Integer> lengthMap = new HashMap<>();
+
+    while (end < s.length()) {
+      populateMap(s.charAt(end), lengthMap);
+      while (!mapCondition(lengthMap) && start < end) {
+        Integer value = lengthMap.get(s.charAt(start));
+        if (value == 1) {
+          lengthMap.remove(s.charAt(start));
         } else {
-          int i = 0;
-          int actualIndex = list.indexOf(ch);
-          while (i <= actualIndex) {
-            list.remove(0);
-            i++;
-          }
-          max = Math.max(max, set.size());
-          set.removeAll(set);
-          set.addAll(list);
-          set.add(ch);
+          lengthMap.put(s.charAt(start), value - 1);
         }
+        start++;
       }
-      max = Math.max(max, set.size());
+      length = Math.max(length, end - start + 1);
+      end++;
     }
 
-    return max;
+    return length;
   }
 
-  @Test
-  public void testSubString1() {
-    System.out.println(lengthOfLongestSubstring("abcabcbb"));
+  private boolean mapCondition(Map<Character, Integer> lengthMap) {
+    for (Map.Entry<Character, Integer> entry : lengthMap.entrySet()) {
+      if (entry.getValue() != 1) {
+        return false;
+      }
+    }
+    return true;
+
   }
 
-  @Test
-  public void testSubString2() {
-    System.out.println(lengthOfLongestSubstring("bbbbb"));
+  private void populateMap(char charAt, Map<Character, Integer> lengthMap) {
+    Integer value = lengthMap.getOrDefault(charAt, 0);
+    lengthMap.put(charAt, value + 1);
   }
 
-  @Test
-  public void testSubString3() {
-    System.out.println(lengthOfLongestSubstring("pwwkew"));
-  }
-
-  @Test
-  public void testSubString4() {
-    System.out.println(lengthOfLongestSubstring("jbpnbwwd"));
-  }
-
-  @Test
-  public void testSubString5() {
-    System.out.println(lengthOfLongestSubstring("dvdf"));
-  }//"ohvhjdml"
-
-  @Test
-  public void testSubString6() {
-    System.out.println(lengthOfLongestSubstring("ohvhjdml"));
-  }
-
-  @Test
-  public void testSubString7() {
-    System.out.println(lengthOfLongestSubstring("aabaab!bb"));
-  }//"yfsrsrpzuya"
-
-  @Test
-  public void testSubString8() {
-    System.out.println(lengthOfLongestSubstring("yfsrsrpzuya"));
-  }
-
-  @Test
-  public void testSubString9() {
-    System.out.println(lengthOfLongestSubstring("wslznzfxojzd"));
-  }
 }

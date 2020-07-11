@@ -1,7 +1,9 @@
 package org.leetcode.Hashing;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.junit.Test;
 
 public class LongestWordinDictionarythroughDeleting_524 {
@@ -9,42 +11,28 @@ public class LongestWordinDictionarythroughDeleting_524 {
 
   public String findLongestWord(String s, List<String> d) {
     String longestWord = "";
-    char[] arrSource = s.toCharArray();
-    Arrays.sort(arrSource);
 
-    for (String str : d) {
-      String sTemp = new String(arrSource);
-      char[] arrSource2 = str.toCharArray();
-      Arrays.sort(arrSource2);
-      String temp = new String(arrSource2);
+    Map<Character, Integer> sMap = buildMap(s);
 
-      int prevIndex = -1;
-      boolean flag = false;
-      for (char c : temp.toCharArray()) {
-        if (!sTemp.contains(String.valueOf(c))) {
-          flag = true;
-          break;
-        } else {
-          if (prevIndex > sTemp.indexOf(c)) {
-            flag = true;
-            break;
-          } else {
-            prevIndex = sTemp.indexOf(c);
-            sTemp = sTemp.replaceFirst(String.valueOf(c), "");
-          }
-        }
-      }
-      if (!flag) {
-        if (str.length() > longestWord.length()) {
-          longestWord = str;
-        } else if (str.length() == longestWord.length()) {
-          longestWord = longestWord.compareTo(str) > 0 ? str : longestWord;
-        }
-      }
+    for (String value : d) {
+      Map<Character, Integer> currMap = buildMap(value);
+      System.out.println(value);
     }
 
     return longestWord;
 
+
+  }
+
+  private Map<Character, Integer> buildMap(String s) {
+    Map<Character, Integer> map = new HashMap<>();
+
+    for (char ch : s.toCharArray()) {
+      int val = map.getOrDefault(ch, 0);
+      map.put(ch, val + 1);
+    }
+
+    return map;
 
   }
 

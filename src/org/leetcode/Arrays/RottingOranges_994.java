@@ -1,10 +1,60 @@
 package org.leetcode.Arrays;
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 import org.junit.Test;
 
 public class RottingOranges_994 {
+
+
+  public int orangesRotting1(int[][] grid) {
+    int days = 0;
+
+    Queue<int[]> queue = new ArrayDeque<>();
+    boolean[][] visited = new boolean[grid.length][grid[0].length];
+    int nonRotten = 0;
+
+    for (int i = 0; i < grid.length; i++) {
+      for (int j = 0; j < grid[0].length; j++) {
+        if (grid[i][j] == 2) {
+          queue.add(new int[]{i, j});
+        }
+        //non rotten
+        if (grid[i][j] == 1) {
+          nonRotten++;
+        }
+      }
+    }
+
+    int[][] check = new int[][]{{1, 0}, {0, 1}, {0, -1}, {-1, 0}};
+
+    while (!queue.isEmpty()) {
+      if (nonRotten == 0) {
+        break;
+      }
+      int size = queue.size();
+      days++;
+      for (int i = 0; i < size; i++) {
+        int[] position = queue.poll();
+        visited[position[0]][position[1]] = true;
+        for (int[] checkValue : check) {
+          int xCoordinate = checkValue[0] + position[0];
+          int yCoordinate = checkValue[1] + position[1];
+          if (xCoordinate > -1 && xCoordinate < grid.length && yCoordinate > -1
+              && yCoordinate < grid[0].length) {
+            if (!visited[xCoordinate][yCoordinate] && grid[xCoordinate][yCoordinate] == 1) {
+              grid[xCoordinate][yCoordinate] = 2;
+              nonRotten--;
+              queue.add(new int[]{xCoordinate, yCoordinate});
+            }
+          }
+        }
+
+      }
+    }
+    return nonRotten != 0 ? -1 : days;
+  }
 
   Queue<OrangeNode> queue = new LinkedList<>();
 
@@ -112,7 +162,7 @@ public class RottingOranges_994 {
 
   @Test
   public void testRotting6() {
-    int[][] grid = {{2,2,2,1,1}};
+    int[][] grid = {{2, 2, 2, 1, 1}};
     System.out.println(orangesRotting(grid));
 
   }

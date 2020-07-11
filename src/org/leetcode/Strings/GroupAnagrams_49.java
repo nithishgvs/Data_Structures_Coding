@@ -26,10 +26,33 @@ public class GroupAnagrams_49 {
   }
 
 
+  public List<String> groupAnagrams2(String[] strs) {
+
+    List<String> outputList = new ArrayList<>();
+    Map<String, List<String>> anagramMap = new HashMap<>();
+    for (String str : strs) {
+      char[] arr = str.toCharArray();
+      Arrays.sort(arr);
+      String tmp = new String(arr);
+      anagramMap.putIfAbsent(tmp, new ArrayList<>());
+      anagramMap.get(tmp).add(str);
+
+    }
+    anagramMap.forEach((key,value)->{
+      outputList.add(value.get(0));
+    });
+
+
+    return outputList;
+
+  }
+
+
   @Test
   public void testGroupAnagrams() {
     String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-    groupAnagrams(strs).forEach(v -> v.forEach(v1 -> System.out.println(v1)));
+    String[] strs1 = {"code", "doce", "ecod", "framer", "frame"};
+    groupAnagrams2(strs1);
   }
   //["cab","tin","pew","duh","may","ill","buy","bar","max","doc"]
 
