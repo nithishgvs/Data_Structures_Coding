@@ -14,7 +14,7 @@ public class MinimumDepthofBinaryTree_111 {
   }
 
   private int minDepthHelper(TreeNode root) {
-    if(root==null){
+    if (root == null) {
       return Integer.MAX_VALUE;
     }
     if (root.left == null && root.right == null) {
@@ -30,7 +30,7 @@ public class MinimumDepthofBinaryTree_111 {
   public void test() {
     HelperTree helperTree = new HelperTree();
     System.out.println(
-        minDepth(helperTree.generateBinaryTree(new Integer[]{1,2})));
+        minDepth(helperTree.generateBinaryTree(new Integer[]{1, 2})));
   }
 
 
