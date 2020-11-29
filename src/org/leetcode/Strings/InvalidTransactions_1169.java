@@ -15,55 +15,52 @@ public class InvalidTransactions_1169 {
     Map<String, List<String>> map = new HashMap<>();
 
     for (int i = 0; i < transactions.length; i++) {
-
       String[] entry = transactions[i].split(",");
-
       if (!map.containsKey(entry[0])) {
         map.put(entry[0], new ArrayList<>());
       }
-
       map.get(entry[0]).add(transactions[i]);
     }
 
-    for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+    for (String transaction : transactions) {
 
-      if (entry.getValue().size() == 1) {
-        if (Integer.valueOf(entry.getValue().get(0).split(",")[2]) > 1000) {
-          invalidString.add(entry.getValue().get(0));
-        }
-      } else {
+      String[] cut = transaction.split(",");
 
-        List<String> list = entry.getValue();
-
-        for (int i = 0; i < list.size(); i++) {
-          if (Integer.valueOf(list.get(i).split(",")[2]) > 1000) {
-            invalidString.add(list.get(i));
-          }
-          for (int j = 0; j < list.size(); j++) {
-            if (i != j && Math.abs(Integer.valueOf(list.get(j).split(",")[1]) - Integer
-                .valueOf(list.get(i).split(",")[1])) < 60 && !list.get(i).split(",")[3]
-                .equals(list.get(j).split(",")[3])) {
-              if (!invalidString.contains(list.get(i)) && !invalidString.contains(list.get(j))) {
-                invalidString.add(list.get(i));
-                invalidString.add(list.get(j));
-
-              }
-            }
-          }
-
-        }
-
+      if (Integer.valueOf(cut[2]) > 1000) {
+        invalidString.add(transaction);
+        continue;
       }
+      List<String> entries = map.get(cut[0]);
+      for (String entry : entries) {
+        if (!entry.equals(transaction)) {
+          String[] entryCut = entry.split(",");
+          if (!entryCut[3].equals(cut[3])
+              && Math.abs(Integer.valueOf(cut[1]) - Integer.valueOf(entryCut[1])) <= 60) {
+            invalidString.add(transaction);
+            break;
+          }
+        }
+      }
+
     }
+
     return invalidString;
   }
 
 
   @Test
   public void test() {
-    String[] transactions = new String[]{"alice,20,800,mtv", "alice,50,100,beijing" };
+    String[] transactions = new String[]{"alice,20,800,mtv", "bob,50,1200,mtv"};
     invalidTransactions(transactions).forEach(v -> System.out.println(v));
 
   }
 
+  @Test
+  public void test1() {
+    String[] transactions = new String[]{"bob,689,1910,barcelona", "alex,696,122,bangkok",
+        "bob,832,1726,barcelona", "bob,820,596,bangkok", "chalicefy,217,669,barcelona",
+        "bob,175,221,amsterdam"};
+    invalidTransactions(transactions).forEach(v -> System.out.println(v));
+
+  }
 }
