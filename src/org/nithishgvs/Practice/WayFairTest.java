@@ -1,4 +1,4 @@
-package org.nithishgvs;
+package org.nithishgvs.Practice;
 
 import org.junit.Test;
 

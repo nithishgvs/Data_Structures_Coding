@@ -1,4 +1,4 @@
-package org.nithishgvs;
+package org.nithishgvs.Practice;
 
 import java.util.ArrayList;
 import java.util.Arrays;

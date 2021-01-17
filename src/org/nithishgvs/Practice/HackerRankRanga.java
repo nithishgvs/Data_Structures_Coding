@@ -2,9 +2,10 @@ package org.nithishgvs.Practice;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Set;
 import org.junit.Test;
 
 public class HackerRankRanga {
@@ -32,8 +33,9 @@ public class HackerRankRanga {
       } else {
         currentMap.put('b', currentMap.get('b') + 1);
       }
-      if (end - start == pattern.length()-1) {
-        if (currentMap.get('a') == binaryMap.get('0') && currentMap.get('b') == binaryMap.get('1')) {
+      if (end - start == pattern.length() - 1) {
+        if (currentMap.get('a') == binaryMap.get('0') && currentMap.get('b') == binaryMap
+            .get('1')) {
           matches++;
         }
         if (alphabets.contains(s.charAt(start))) {
@@ -64,24 +66,64 @@ public class HackerRankRanga {
     return binaryMap;
   }
 
+  public String solution(String S, String C) {
+    // write your code in Java SE 8
+    Set<String> values = new HashSet<>();
+    String[] splitArray = S.split(";");
+
+    StringBuilder mainBuilder = new StringBuilder();
+
+    for (int i = 0; i < splitArray.length; i++) {
+      String current = splitArray[i];
+      String[] newSplit = current.trim().split("\\s+");
+      StringBuilder sb = new StringBuilder();
+      int counter = 2;
+
+      if (newSplit.length == 2) {
+        sb.append(newSplit[0].toLowerCase()).append(".");
+        String last = newSplit[1].replaceAll("-", "");
+        if (last.length() > 8) {
+          last = last.substring(0, 7);
+        }
+        sb.append(last.toLowerCase());
+      } else {
+        sb.append(newSplit[0].toLowerCase()).append(".");
+        String last = newSplit[2].replaceAll("-", "");
+        if (last.length() > 8) {
+          last = last.substring(0, 8);
+        }
+        sb.append(last.toLowerCase());
+      }
+
+      String valueCurrent = sb.toString();
+      while (!values.isEmpty()&& values.contains(valueCurrent)) {
+
+        char lastChar=valueCurrent.charAt(valueCurrent.length()-1);
+
+        if(Character.isDigit(lastChar)){
+          valueCurrent=valueCurrent.substring(0,valueCurrent.length()-1);
+        }
+        valueCurrent = valueCurrent + counter;
+        counter++;
+      }
+      values.add(valueCurrent);
+
+      mainBuilder.append(valueCurrent).append("@").append(C.toLowerCase()).append(".com").append("; ");
+
+
+    }
+
+    return mainBuilder.toString().substring(0, mainBuilder.lastIndexOf(";"));
+  }
+
 
   @Test
-  public void test1() {
-    Map<String,String> mapResponse=new HashMap<>();
-    for (Entry<String, String> entry : mapResponse.entrySet()) {
-      String k = entry.getKey();
-      String v = entry.getValue();
-      System.out.println(k + ":" + v);
-    }
-  }
-
-  public static void main(String[] args) {
-    int sum=0;
-    for(int i=0,j=0;i<5 &j<5;++i,j=i+1)
-      sum+=i;
-    System.out.println(sum);
+  public void test() {
+    String av="aaa";
+    System.out.println(av.substring(0,av.length()-1));
+    String response= solution("John Doe; Peter Benjamin Parker; Mary Jane Watson-Parker; John Elvis Doe; John Evan Doe; Jane Doe; Peter Brian Parker","Example");
+    System.out.println(response);
 
   }
-
 
 }
