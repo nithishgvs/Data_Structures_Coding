@@ -1,9 +1,7 @@
 package org.leetcode.Hashing;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.junit.Test;
 
 public class LongestWordinDictionarythroughDeleting_524 {
@@ -12,11 +10,19 @@ public class LongestWordinDictionarythroughDeleting_524 {
   public String findLongestWord(String s, List<String> d) {
     String longestWord = "";
 
-    Map<Character, Integer> sMap = buildMap(s);
 
     for (String value : d) {
-      Map<Character, Integer> currMap = buildMap(value);
-      System.out.println(value);
+      if (isSubSequenceFound(value, s)) {
+        if (longestWord.length() > 0) {
+          if (longestWord.length() == value.length()) {
+            longestWord = longestWord.compareTo(value) > 0 ? value : longestWord;
+          } else {
+            longestWord = value.length() > longestWord.length() ? value : longestWord;
+          }
+        } else {
+          longestWord = value;
+        }
+      }
     }
 
     return longestWord;
@@ -24,19 +30,28 @@ public class LongestWordinDictionarythroughDeleting_524 {
 
   }
 
-  private Map<Character, Integer> buildMap(String s) {
-    Map<Character, Integer> map = new HashMap<>();
 
-    for (char ch : s.toCharArray()) {
-      int val = map.getOrDefault(ch, 0);
-      map.put(ch, val + 1);
+  public static boolean isSubSequenceFound(String str1, String str2){
+    int j = 0;
+    for(int i = 0; i < str2.length(); i++){
+      // If char found move to next char
+      if(str1.charAt(j) == str2.charAt(i)){
+        ++j;
+      }
+      // Equal means all the characters of str1 are
+      // found in str2 in order
+      if(j == str1.length()){
+        return true;
+      }
     }
-
-    return map;
-
+    return false;
   }
 
 
+  @Test
+  public void test100() {
+    System.out.println(isSubSequenceFound("apple","abpcplea"));
+  }
   @Test
   public void test1() {
     System.out
