@@ -1,6 +1,5 @@
 package org.leetcode.Heaps;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 import org.junit.Test;
 
@@ -9,15 +8,12 @@ public class KClosestPointsToOrigin_973 {
   public int[][] kClosest(int[][] points, int K) {
     int[][] closest = new int[K][2];
 
-    PriorityQueue<Coordinates> minHeap = new PriorityQueue<>(new Comparator<Coordinates>() {
-      @Override
-      public int compare(Coordinates o1, Coordinates o2) {
-        if (Math.sqrt(Math.pow(o2.x, 2) + Math.pow(o2.y, 2)) > Math
-            .sqrt(Math.pow(o1.x, 2) + Math.pow(o1.y, 2))) {
-          return -1;
-        } else {
-          return 1;
-        }
+    PriorityQueue<Coordinates> minHeap = new PriorityQueue<>((o1, o2) -> {
+      if (Math.sqrt(Math.pow(o2.x, 2) + Math.pow(o2.y, 2)) > Math
+          .sqrt(Math.pow(o1.x, 2) + Math.pow(o1.y, 2))) {
+        return -1;
+      } else {
+        return 1;
       }
     });
 

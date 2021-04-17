@@ -28,9 +28,16 @@ public class StringPermutation {
     return String.valueOf(arr);
   }
 
+  boolean f (int x,int y){
+    return ((x&(1<<y)))!=0;
+  }
+
   @Test
   public void test() {
-    stringPermute(0, 2, "abc");
+
+    int y=4;
+    int x=3;
+    System.out.println(((x&(1<<y))));
   }
 
 

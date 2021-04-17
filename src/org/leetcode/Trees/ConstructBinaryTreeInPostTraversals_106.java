@@ -67,6 +67,16 @@ public class ConstructBinaryTreeInPostTraversals_106 {
     }
 
     @Test
+    public void testConstructTree12() {
+
+        int[] inorder = { 12, 25, 27, 33, 34, 39, 48, 52, 60, 65, 72, 78, 90 };
+        int[] postOrder = { 12, 27, 25, 34, 48, 39, 33, 60, 72, 90, 78, 65, 52 };
+        TreeNode root = buildTree(inorder, postOrder);
+        inOrderRecursive(root);
+
+    }
+
+    @Test
     public void testConstructTree3() {
 
         int[] inorder = { 1, 2, 3, 4 };

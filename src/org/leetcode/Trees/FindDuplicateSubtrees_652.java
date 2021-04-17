@@ -14,10 +14,8 @@ public class FindDuplicateSubtrees_652 {
 
 
   public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
-
     serializationHelper(root);
     return treeNodeList;
-
   }
 
 
@@ -99,7 +97,8 @@ public class FindDuplicateSubtrees_652 {
     HelperTree tree = new HelperTree();
     TreeNode root = tree
         .generateBinaryTree(new Integer[]{0, 0, 0, 0, null, null, 0, null, null, null, 0});
-    findDuplicateSubtrees(root);
+    List<TreeNode>  result=findDuplicateSubtrees(root);
+    System.out.println(result);
   }
 
 }

@@ -68,6 +68,7 @@ public class NumberofProvinces_547 {
   public void test1() {
     int[][] isConnected = {{1,0,0}, {0,1,0}, {0,0,1}};
     System.out.println(findCircleNum(isConnected));
+    System.out.println(9/2);
   }
 
 }

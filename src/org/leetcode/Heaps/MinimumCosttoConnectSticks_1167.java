@@ -29,7 +29,7 @@ public class MinimumCosttoConnectSticks_1167 {
 
   @Test
   public void test() {
-    System.out.println(connectSticks(new int[]{1,8,3,5}));
+    System.out.println(connectSticks(new int[]{4,6,8}));
   }
 
 
