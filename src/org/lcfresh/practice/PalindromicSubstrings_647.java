@@ -10,7 +10,6 @@ public class PalindromicSubstrings_647 {
     int count = 0;
 
     int[][] dp = new int[s.length()][s.length()];
-
     for (int i = 0; i < s.length(); i++) {
       dp[i][i] = 1;
       count++;
@@ -29,7 +28,6 @@ public class PalindromicSubstrings_647 {
               dp[i][j] = 1;
               count++;
             }
-
           }
         }
         i++;
