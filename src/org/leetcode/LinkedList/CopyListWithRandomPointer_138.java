@@ -2,7 +2,7 @@ package org.leetcode.LinkedList;
 
 import org.junit.Test;
 
-public class CopyListwithRandomPointer_138 {
+public class CopyListWithRandomPointer_138 {
 
   class Node {
 
