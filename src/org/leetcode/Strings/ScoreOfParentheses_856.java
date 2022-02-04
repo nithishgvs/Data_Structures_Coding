@@ -6,64 +6,45 @@ import org.junit.Test;
 public class ScoreOfParentheses_856 {
 
 
-  public int scoreOfParentheses(String S) {
-    if (S == null || S.length() < 0) {
+  public int scoreOfParentheses(String s) {
+    if (s == null || s.length() < 0) {
       return 0;
     }
 
-    Stack<Character> stack1 = new Stack<>();
+    Stack<Integer> stack = new Stack<>();
 
-    for (char ch : S.toCharArray()) {
-      if (!stack1.isEmpty() && stack1.peek() == '(' && ch == ')') {
-        stack1.pop();
-        stack1.add('1');
+    for (int i = 0; i < s.length(); i++) {
+      char ch = s.charAt(i);
+      if (ch == '(') {
+        stack.push(-1);
       } else {
-        stack1.push(ch);
-      }
-    }
-
-    Stack<Character> stack2 = new Stack<>();
-    while (!stack1.isEmpty()) {
-      char popped1 = stack1.pop();
-      if (popped1 == '(') {
-        int num = 0;
-        while (!stack2.isEmpty()) {
-          char popped2 = stack2.pop();
-          if (Character
-              .isDigit(popped2)) {
-            num = Character.getNumericValue(popped2);
+        if (stack.peek() == -1) {
+          stack.pop();
+          stack.push(1);
+        } else {
+          int sum = 0;
+          while (stack.peek() != -1) {
+            sum += stack.pop();
           }
-          if (popped2 == ')' && num != 0) {
-            if (!stack2.isEmpty() && Character
-                .isDigit(stack2.peek())) {
-              stack2
-                  .push(Character.forDigit(2 * num + Character.getNumericValue(stack2.pop()), 10));
-            } else {
-              stack2.push(Character.forDigit(2 * num, 10));
-            }
-            break;
-          }
+          sum = 2 * (sum);
+          stack.pop();
+          stack.push(sum);
         }
 
-      } else if (!stack2.isEmpty() && Character
-          .isDigit(popped1) && Character
-          .isDigit(stack2.peek())) {
-        stack2.push(Character
-            .forDigit(Character.getNumericValue(popped1) + Character.getNumericValue(stack2.pop()),
-                10));
-      } else {
-        stack2.push(popped1);
       }
-
     }
 
-    return Character.getNumericValue(stack2.peek());
+    int score = 0;
+    while (!stack.empty()) {
+      score += stack.pop();
+    }
+    return score;
   }
 
 
   @Test
   public void testParenthesesScore() {
-    System.out.println(scoreOfParentheses("(()(()))"));
+    System.out.println(scoreOfParentheses("()()"));
   }
 
   @Test
