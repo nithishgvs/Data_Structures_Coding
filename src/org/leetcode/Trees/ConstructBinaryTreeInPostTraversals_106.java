@@ -14,7 +14,7 @@ public class ConstructBinaryTreeInPostTraversals_106 {
         }
     }
 
-    public TreeNode buildTree(int[] inorder, int[] postorder) {
+    public TreeNode buildTree2(int[] inorder, int[] postorder) {
         return buildTreeHelper(inorder, postorder, 0, postorder.length - 1, postorder.length - 1);
     }
 
@@ -74,6 +74,39 @@ public class ConstructBinaryTreeInPostTraversals_106 {
         TreeNode root = buildTree(inorder, postOrder);
         inOrderRecursive(root);
 
+    }
+
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        return buildTreeHelper(inorder, postorder, 0, inorder.length - 1, 0,postorder.length - 1);
+    }
+
+
+    private TreeNode buildTreeHelper(int[] inorder, int[] postorder, int inStart, int inEnd,
+        int postStart, int postEnd) {
+
+        if (inorder.length == 0 || postorder.length == 0) {
+            return null;
+        }
+
+        if (inStart > inEnd || postStart > postEnd)
+            return null;
+
+        int rootValue = postorder[postEnd];
+        TreeNode root = new TreeNode(rootValue);
+
+        int k = 0;
+        for (int i = 0; i < inorder.length; i++) {
+            if (inorder[i] == rootValue) {
+                k = i;
+                break;
+            }
+        }
+
+        root.left = buildTreeHelper(inorder, postorder, inStart, k - 1, postStart,
+            postStart + k - (inStart + 1));
+        root.right = buildTreeHelper(inorder, postorder, k + 1, inEnd, postStart + k - inStart, postEnd - 1);
+        return root;
     }
 
     @Test
