@@ -76,7 +76,7 @@ public class ValidateBinarySearchTree_98 {
     TreeNode treeNode = helperTree.generateBinaryTree(new Integer[]{2, 1, 3});
     treeNode = helperTree.generateBinaryTree(new Integer[]{10, 5, 15, null, null, 6, 20});
     //treeNode = helperTree.generateBinaryTree(new Integer[]{3, 1, 5, 0, 2, 4, 6});
-    treeNode = helperTree.generateBinaryTree(new Integer[]{Integer.MAX_VALUE});
+    //treeNode = helperTree.generateBinaryTree(new Integer[]{Integer.MAX_VALUE});
       //treeNode = helperTree.generateBinaryTree(new Integer[]{0});
     System.out.println(isValidBST(treeNode));
   }

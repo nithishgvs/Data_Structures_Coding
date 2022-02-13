@@ -1,4 +1,4 @@
-package org.seanparshad.practice;
+package org.twentytwentytwo.practice;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

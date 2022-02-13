@@ -1,4 +1,4 @@
-package org.seanparshad.practice;
+package org.twentytwentytwo.practice;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -8,18 +8,21 @@ import org.junit.Test;
 import org.leetcode.Trees.HelperTree;
 import org.leetcode.Trees.TreeNode;
 
-public class AverageOfLevelsInBinaryTree_637 {
+public class BinaryTreeLevelOrderTraversalII_107 {
 
-  public List<Double> averageOfLevels(TreeNode root) {
-    List<Double> avgLevels = new ArrayList<>();
+  public List<List<Integer>> levelOrderBottom(TreeNode root) {
+    List<List<Integer>> result = new ArrayList<>();
+    if (root == null) {
+      return result;
+    }
     Queue<TreeNode> queue = new ArrayDeque<>();
     queue.add(root);
     while (!queue.isEmpty()) {
       int size = queue.size();
-      double levelAvg = 0;
+      List<Integer> currentList = new ArrayList<>();
       for (int i = 0; i < size; i++) {
         TreeNode polled = queue.poll();
-        levelAvg += polled.val;
+        currentList.add(polled.val);
         if (polled.left != null) {
           queue.add(polled.left);
         }
@@ -27,17 +30,24 @@ public class AverageOfLevelsInBinaryTree_637 {
           queue.add(polled.right);
         }
       }
-      avgLevels.add(levelAvg / size);
+      result.add(0, currentList);
     }
-
-    return avgLevels;
+    return result;
   }
 
   @Test
   public void test1() {
     HelperTree helperTree = new HelperTree();
     TreeNode treeNode = helperTree.generateBinaryTree(new Integer[]{3, 9, 20, null, null, 15, 7});
-    averageOfLevels(treeNode);
+    levelOrderBottom(treeNode);
+
+  }
+
+  @Test
+  public void test2() {
+    HelperTree helperTree = new HelperTree();
+    TreeNode treeNode = null;
+    levelOrderBottom(treeNode);
 
   }
 

@@ -1,4 +1,4 @@
-package org.seanparshad.practice;
+package org.twentytwentytwo.practice;
 
 import java.util.Arrays;
 import org.junit.Test;

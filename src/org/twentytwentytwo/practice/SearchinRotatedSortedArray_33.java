@@ -1,4 +1,4 @@
-package org.seanparshad.practice;
+package org.twentytwentytwo.practice;
 
 public class SearchinRotatedSortedArray_33 {
 
