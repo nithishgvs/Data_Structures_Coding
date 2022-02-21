@@ -38,8 +38,8 @@ public class CoinChange2_518 {
 
   @Test
   public void testCoinChange2() {
-    int[] coins = {2};
-    System.out.println(change(3, coins));
+    int[] coins = {2,3};
+    System.out.println(change(5, coins));
   }
 
   @Test
