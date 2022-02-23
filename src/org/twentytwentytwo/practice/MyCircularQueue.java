@@ -2,84 +2,83 @@ package org.twentytwentytwo.practice;
 
 public class MyCircularQueue {
 
-
-  private static final int SPECIAL_EMPTY_VALUE = -1;
+  private static final int SPECIAL_VALUE = -1;
 
   int headIndex;
   int tailIndex;
-
-  int[] array;
+  int[] queue;
 
   public MyCircularQueue(int k) {
-    array = new int[k];
-    headIndex = SPECIAL_EMPTY_VALUE;
-    tailIndex = SPECIAL_EMPTY_VALUE;
+    headIndex = SPECIAL_VALUE;
+    tailIndex = SPECIAL_VALUE;
+    queue = new int[k];
   }
 
   public boolean enQueue(int value) {
+
     if (isFull()) {
       return false;
     }
-    tailIndex = (tailIndex + 1) % array.length;
-    array[tailIndex] = value;
+    tailIndex = (tailIndex + 1) % queue.length;
+    queue[tailIndex] = value;
 
-    if (headIndex == SPECIAL_EMPTY_VALUE) {
+    if (headIndex == SPECIAL_VALUE) {
       headIndex = tailIndex;
     }
     return true;
+
   }
 
   public boolean deQueue() {
-
     if (isEmpty()) {
       return false;
     }
-    System.out.println("Removing: " + array[headIndex]);
     if (headIndex == tailIndex) {
-      headIndex = SPECIAL_EMPTY_VALUE;
+      headIndex = SPECIAL_VALUE;
     } else {
-      headIndex = (headIndex + 1) % array.length;
+      headIndex = (headIndex + 1) % queue.length;
     }
     return true;
   }
 
   public int Front() {
+
     if (isEmpty()) {
       return -1;
     }
-    return array[headIndex];
+
+    return queue[headIndex];
+
   }
 
   public int Rear() {
     if (isEmpty()) {
       return -1;
     }
-    return array[tailIndex];
+
+    return queue[tailIndex];
   }
 
   public boolean isEmpty() {
-    return headIndex == SPECIAL_EMPTY_VALUE;
+    return headIndex == SPECIAL_VALUE;
   }
 
   public boolean isFull() {
-    int nextIndex = (tailIndex + 1) % array.length;
+    int nextIndex = (tailIndex + 1) % queue.length;
     return nextIndex == headIndex;
   }
 
 
   public static void main(String[] args) {
-    MyCircularQueue myCircularQueue = new MyCircularQueue(6);
-    System.out.println(myCircularQueue.enQueue(6));
-    System.out.println(myCircularQueue.Rear());
-    System.out.println(myCircularQueue.Rear());
-    System.out.println(myCircularQueue.deQueue());
-    System.out.println(myCircularQueue.enQueue(5));
-    System.out.println(myCircularQueue.Rear());
-    System.out.println(myCircularQueue.deQueue());
-    System.out.println(myCircularQueue.Front());
-    System.out.println(myCircularQueue.deQueue());
-    System.out.println(myCircularQueue.deQueue());
-    System.out.println(myCircularQueue.deQueue());
+    MyCircularQueue myCircularQueue = new MyCircularQueue(3);
+    System.out.println(myCircularQueue.enQueue(1)); // return True
+    System.out.println(myCircularQueue.enQueue(2)); // return True
+    System.out.println(myCircularQueue.enQueue(3)); // return True
+    System.out.println(myCircularQueue.enQueue(4)); // return False
+    System.out.println(myCircularQueue.Rear());     // return 3
+    System.out.println(myCircularQueue.isFull());   // return True
+    System.out.println(myCircularQueue.deQueue());  // return True
+    System.out.println(myCircularQueue.enQueue(4)); // return True
+    System.out.println(myCircularQueue.Rear());     // return 4
   }
-
 }
