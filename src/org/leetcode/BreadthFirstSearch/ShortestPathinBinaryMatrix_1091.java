@@ -62,8 +62,8 @@ public class ShortestPathinBinaryMatrix_1091 {
 
   @Test
   public void test1() {
-    //System.out.println(shortestPathBinaryMatrix(new int[][]{{0}}));
-    System.out.println(10 / 0);
+    System.out.println(shortestPathBinaryMatrix(new int[][]{{0,0,0},{1,1,0},{1,1,0}}));
+
   }
 
 
