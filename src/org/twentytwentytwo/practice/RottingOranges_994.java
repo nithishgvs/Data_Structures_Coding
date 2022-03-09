@@ -57,12 +57,14 @@ public class RottingOranges_994 {
 
   }
 
+
   @Test
   public void test1() {
     System.out.println(orangesRotting(new int[][]{{2, 1, 1}, {1, 1, 0}, {0, 1, 1}}));
     System.out.println(orangesRotting(new int[][]{{2, 1, 1}, {0, 1, 1}, {1, 0, 1}}));
     System.out.println(orangesRotting(new int[][]{{2, 1, 1}, {1, 1, 1}, {0, 1, 2}}));
     System.out.println(orangesRotting(new int[][]{{0, 2}}));
+
   }
 
 
