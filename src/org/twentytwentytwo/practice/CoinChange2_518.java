@@ -27,7 +27,7 @@ public class CoinChange2_518 {
 
   @Test
   public void test1() {
-    int[] coins = new int[]{1, 2, 5};
+    int[] coins = new int[]{1, 2, 3};
     System.out.println(change(5, coins));
   }
 }
