@@ -44,7 +44,7 @@ public class SumRoottoLeafNumbers_129 {
   @Test
   public void test() {
     HelperTree helperTree = new HelperTree();
-    TreeNode treeNode = helperTree.generateBinaryTree(new Integer[]{0});
+    TreeNode treeNode = helperTree.generateBinaryTree(new Integer[]{4, 9, 0, 5, 1});
     sumNumbers(treeNode);
   }
 }
