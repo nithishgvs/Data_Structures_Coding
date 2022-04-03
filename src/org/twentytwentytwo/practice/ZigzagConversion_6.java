@@ -38,6 +38,6 @@ public class ZigzagConversion_6 {
 
   @Test
   public void test1() {
-    System.out.println(convert("PAYPALISHIRING", 3));
+    System.out.println(convert("PAYPALISHIRING", 4));
   }
 }
