@@ -1,6 +1,6 @@
 package org.nithishgvs.Practice;
 
-public class ChewyTest {
+public class TestPrac {
 
 
   public String shiftingLetters(String s, int[] shifts) {
@@ -24,9 +24,21 @@ public class ChewyTest {
     return String.valueOf(charArray);
   }
 
+  public static class InnerclassTest {
+
+    public static String temp;
+  }
+
+  public static class InnerclassTest2 {
+
+    public static String temp;
+  }
+
 
   public static void main(String[] args) {
-    ChewyTest chewyTest = new ChewyTest();
-    System.out.println(chewyTest.shiftingLetters("aez", new int[]{1, 1, 3}));
+    TestPrac testPrac = new TestPrac();
+    TestPrac.InnerclassTest innerclassTest = new InnerclassTest();
+    TestPrac.InnerclassTest2 innerclassTest2 = new InnerclassTest2();
+    System.out.println(testPrac.shiftingLetters("aez", new int[]{1, 1, 3}));
   }
 }

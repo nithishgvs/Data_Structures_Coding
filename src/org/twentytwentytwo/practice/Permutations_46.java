@@ -7,7 +7,7 @@ public class Permutations_46 {
 
   public List<List<Integer>> permute(int[] nums) {
 
-    List<List<Integer>> result = new ArrayList<>();
+    final List<List<Integer>> result = new ArrayList<>();
 
     generatePermutations(nums, result, new ArrayList());
 
