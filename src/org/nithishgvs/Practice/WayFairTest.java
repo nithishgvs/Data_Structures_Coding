@@ -9,34 +9,26 @@ public class WayFairTest {
 
     String output = "";
 
-    s = s.replaceAll("[^0-9]", "");
+    String[] array = s.split("\\s+");
 
-    int cut = 0;
+    for (int i = 0; i < array.length; i++) {
 
-    for (int i = 0; i < s.length(); i++) {
-      if (cut == 2 && i == s.length() - 2) {
-        cut = 0;
-        output = output + "-" + s.charAt(i);
-        continue;
+      if (i != 2) {
+        output += array[i];
+      } else {
+        output += array[i].toUpperCase();
       }
-      output = output + s.charAt(i);
-      cut++;
-      if (cut == 3 && i!=s.length()-1) {
-        output = output + "-";
-        cut = 0;
-      }
+      output += " ";
     }
 
-    return output;
+    return output.trim();
 
   }
 
 
   @Test
   public void test() {
-    System.out.println(solution("00-44 48 5555 8361"));
-    System.out.println(solution("0 - 22 1985--324"));
-    System.out.println(solution("5553726541"));
+    System.out.println(solution("This is Capgemini Engineering"));
   }
 
 
