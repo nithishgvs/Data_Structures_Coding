@@ -32,7 +32,7 @@ public class ValidAnagram_242 {
 
   @Test
   public void test() {
-    //System.out.println(isAnagram("anagram","nagaram"));
+    System.out.println(isAnagram("anagram","nagaram"));
     System.out.println(isAnagram("a", "ab"));
   }
 
