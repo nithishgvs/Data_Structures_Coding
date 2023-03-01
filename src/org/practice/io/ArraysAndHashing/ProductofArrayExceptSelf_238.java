@@ -1,4 +1,4 @@
-package org.neetcode.io.ArraysAndHashing;
+package org.practice.io.ArraysAndHashing;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package org.neetcode.io.ArraysAndHashing;
+package org.practice.io.ArraysAndHashing;
 
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class ValidPalindrome_125 {
 
   @Test
   public void test1() {
-    //System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+    System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
     System.out.println(isPalindrome("0P"));
   }
 }
