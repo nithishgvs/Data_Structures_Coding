@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.junit.Test;
 
-public class LongestSubstringWithoutRepeatingCharacters_3 {
+public class LongestSubstringWithoutRepeatingCharacters_3_3 {
 
 
   public int lengthOfLongestSubstring(String s) {
