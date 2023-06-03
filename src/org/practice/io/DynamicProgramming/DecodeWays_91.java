@@ -6,8 +6,6 @@ public class DecodeWays_91 {
 
   /**
    * Vmware asked question
-   * @param s
-   * @return
    */
   public int numDecodings(String s) {
 
