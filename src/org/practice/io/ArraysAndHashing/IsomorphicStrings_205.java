@@ -11,25 +11,22 @@ public class IsomorphicStrings_205 {
   }
 
   private String prepareString(String s) {
+    StringBuilder stringBuilder = new StringBuilder();
     Map<Character, Integer> map = new HashMap<>();
-    StringBuilder str = new StringBuilder();
-
-    for(int i=0;i<s.length();i++){
-      char ch=s.charAt(i);
-      if(!map.containsKey(ch)){
-        map.put(ch,i);
+    for (int i = 0; i < s.length(); i++) {
+      if (!map.containsKey(s.charAt(i))) {
+        map.put(s.charAt(i), i);
       }
-      str.append(map.get(ch)).append("_");
+      stringBuilder.append(map.get(s.charAt(i))).append("#");
     }
 
-
-    return str.toString();
+    return stringBuilder.toString();
   }
 
 
   @Test
   public void test1() {
-    //System.out.println(isIsomorphic("paper", "title"));
+    System.out.println(isIsomorphic("paper", "title"));
     System.out.println(isIsomorphic("13", "42"));
   }
 
