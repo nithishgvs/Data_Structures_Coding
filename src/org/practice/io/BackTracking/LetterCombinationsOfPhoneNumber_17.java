@@ -33,11 +33,10 @@ public class LetterCombinationsOfPhoneNumber_17 {
 
     for (int i = 0; i < currentValue.length(); i++) {
       char character = currentValue.charAt(i);
-        currentCombination += character;
-        generateAllLetterCombinations(++index, digits, currentCombination, allCombinations);
-        currentCombination = currentCombination.substring(0, currentCombination.length() - 1);
-        index = index - 1;
-      }
+      currentCombination += character;
+      generateAllLetterCombinations(index + 1, digits, currentCombination, allCombinations);
+      currentCombination = currentCombination.substring(0, currentCombination.length() - 1);
+    }
   }
 
   @Test

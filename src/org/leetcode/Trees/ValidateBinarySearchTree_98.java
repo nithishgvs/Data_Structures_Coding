@@ -61,15 +61,6 @@ public class ValidateBinarySearchTree_98 {
     System.out.println(isValidBST(root));
   }
 
-//  public void inOrderRecursive(TreeNode root) {
-//    if (root == null) {
-//      return;
-//    }
-//    inOrderRecursive(root.left);
-//    inOrderList.add(root.val);
-//    inOrderRecursive(root.right);
-//  }
-
   @Test
   public void test1() {
     HelperTree helperTree = new HelperTree();
