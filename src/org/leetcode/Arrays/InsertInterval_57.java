@@ -15,41 +15,40 @@ public class InsertInterval_57 {
     for (int i = 0; i < intervals.length; i++) {
       newIntervals[i] = intervals[i];
     }
-    newIntervals[intervals.length] = newInterval;
-    Arrays.sort(newIntervals, Comparator.comparingInt(o -> o[0]));
+
+    newIntervals[newIntervals.length - 1] = newInterval;
+    Arrays.sort(newIntervals, Comparator.comparing(a -> a[0]));
 
     Stack<int[]> stack = new Stack<>();
-    stack.push(newIntervals[0]);
+    stack.add(newIntervals[0]);
+
     for (int i = 1; i < newIntervals.length; i++) {
-      if (overlap(newIntervals[i], stack.peek())) {
-        int[] popped = stack.pop();
-        int[] newArray = new int[2];
-        newArray[0] = Math.min(popped[0], newIntervals[i][0]);
-        newArray[1] = Math.max(popped[1], newIntervals[i][1]);
-        stack.push(newArray);
-      }else{
-        stack.push(newIntervals[i]);
+      if (overlap(stack.peek(), newIntervals[i])) {
+        int[] pop = stack.pop();
+        stack.add(new int[]{Math.min(pop[0], newIntervals[i][0]), Math.max(pop[1], newIntervals[i][1])});
+      } else {
+        stack.add(newIntervals[i]);
       }
     }
 
     int[][] result = new int[stack.size()][2];
-    int i = stack.size()-1;
+
+    int i = result.length - 1;
+
     while (!stack.isEmpty()) {
-      result[i][0] = stack.peek()[0];
-      result[i][1] = stack.peek()[1];
-      stack.pop();
+      result[i] = stack.pop();
       i--;
     }
-
     return result;
 
   }
 
-  boolean overlap(int[] i1, int[] i2) {
-    int front = Math.max(i1[0], i2[0]);
-    int back = Math.min(i1[1], i2[1]);
-    return back - front >= 0;
+  private boolean overlap(int[] peek, int[] newInterval) {
+    int front = Math.max(peek[0], newInterval[0]);
+    int back = Math.min(peek[1], newInterval[1]);
+    return front - back <= 0;
   }
+
 
   @Test
   public void test1() {
@@ -63,5 +62,9 @@ public class InsertInterval_57 {
     insert(intervals, new int[]{2, 5});
   }
 
-
+  @Test
+  public void test3() {
+    int[][] intervals = {{1,2},{3,5},{6,7},{8,10},{12,16}};
+    insert(intervals, new int[]{4,8});
+  }
 }
