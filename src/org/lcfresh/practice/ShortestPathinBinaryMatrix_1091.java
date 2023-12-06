@@ -73,7 +73,6 @@ public class ShortestPathinBinaryMatrix_1091 {
   public void test2() {
     int[][] grid = {{0, 1, 1, 0, 0, 0}, {0, 1, 0, 1, 1, 0}, {0, 1, 1, 0, 1, 0}, {0, 0, 0, 1, 1, 0},
         {1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 0}};
-    System.out.println((float)4/333);
     System.out.println(shortestPathBinaryMatrix(grid));
   }
 }

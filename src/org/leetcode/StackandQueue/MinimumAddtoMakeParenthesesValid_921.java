@@ -5,30 +5,26 @@ import org.junit.Test;
 
 public class MinimumAddtoMakeParenthesesValid_921 {
 
-  public int minAddToMakeValid(String S) {
+  public int minAddToMakeValid(String s) {
     Stack<Character> stack = new Stack<>();
-    Stack<Character> stack2 = new Stack<>();
-
-    for (int j = 0; j < S.length(); j++) {
-      stack.push(S.charAt(j));
-    }
-
-    while (!stack.isEmpty()) {
-      char popped = stack.pop();
-      if (popped == '(' && !stack2.isEmpty() && stack2.peek() == ')') {
-        stack2.pop();
-
+    for (int i = 0; i < s.length(); i++) {
+      if (!stack.isEmpty() && s.charAt(i) == ')' && stack.peek() == '(') {
+        stack.pop();
       } else {
-        stack2.push(popped);
+        stack.add(s.charAt(i));
       }
     }
-
-    return stack2.size();
+    return stack.size();
   }
 
   @Test
   public void testMin() {
     System.out.println(minAddToMakeValid("()))(("));
+  }
+
+  @Test
+  public void testMin1() {
+    System.out.println(minAddToMakeValid("((("));
   }
 
 }
